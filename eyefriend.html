@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>EyeFriend Case Study | Lucas Lorga</title>
   <meta name="description" content="EyeFriend: a real-time multimodal AI shopping assistant for visually impaired people. Product case study by Lucas Lorga, one of three PMs.">
-  <meta name="theme-color" content="#060d18">
+  <meta name="theme-color" content="#ffffff">
   <meta property="og:type" content="article">
   <meta property="og:title" content="EyeFriend Case Study | Lucas Lorga">
   <meta property="og:description" content="Discovery, guardrails and metrics for a multimodal AI assistant for visually impaired shoppers.">
@@ -18,7 +18,7 @@
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -43,8 +43,6 @@
 
   <!-- ================= CASE HERO ================= -->
   <section class="case-hero" aria-labelledby="case-title">
-    <div class="hero__bg" aria-hidden="true"></div>
-    <canvas id="fx-canvas" aria-hidden="true"></canvas>
     <div class="wrap">
       <span class="hud"><span data-lang="en">Case study · AI product</span><span data-lang="pt">Estudo de caso · Produto de IA</span></span>
       <h1 id="case-title" style="margin-top:10px">EyeFriend</h1>
@@ -57,7 +55,7 @@
         <span class="chip"><span data-lang="en">Team: 15, cross-functional</span><span data-lang="pt">Time: 15, multidisciplinar</span></span>
         <span class="chip"><span data-lang="en">11-week MVP sprint · Aug 2026 Demo Day</span><span data-lang="pt">Sprint de MVP de 11 semanas · Demo Day ago/2026</span></span>
         <span class="chip">PM Accelerator AI PM Bootcamp · Cohort 9</span>
-        <span class="chip" style="color:var(--amber);border-color:rgba(255,181,71,.45)">★ <span data-lang="en">#1 Best Project (peer-voted)</span><span data-lang="pt">1º Melhor Projeto (voto dos participantes)</span></span>
+        <span class="chip chip--award">★ <span data-lang="en">#1 Best Project (peer-voted)</span><span data-lang="pt">1º Melhor Projeto (voto dos participantes)</span></span>
       </div>
     </div>
   </section>
@@ -70,7 +68,7 @@
         <p class="toc__title hud"><span data-lang="en">Chapters</span><span data-lang="pt">Capítulos</span></p>
         <nav aria-label="Case study chapters">
           <ol>
-            <li><a href="#tldr"><span><span data-lang="en">TL;DR</span><span data-lang="pt">Resumo</span></span></a></li>
+            <li><a href="#tldr"><span><span data-lang="en">In 60 seconds</span><span data-lang="pt">Em 60 segundos</span></span></a></li>
             <li><a href="#role"><span><span data-lang="en">Context &amp; my role</span><span data-lang="pt">Contexto e meu papel</span></span></a></li>
             <li><a href="#problem"><span><span data-lang="en">The problem</span><span data-lang="pt">O problema</span></span></a></li>
             <li><a href="#research"><span><span data-lang="en">User research</span><span data-lang="pt">Pesquisa com usuários</span></span></a></li>
@@ -97,7 +95,7 @@
             <summary><span data-current><span data-lang="en">Chapters</span><span data-lang="pt">Capítulos</span></span></summary>
             <nav aria-label="Case study chapters (mobile)">
               <ol>
-                <li><a href="#tldr"><span><span data-lang="en">TL;DR</span><span data-lang="pt">Resumo</span></span></a></li>
+                <li><a href="#tldr"><span><span data-lang="en">In 60 seconds</span><span data-lang="pt">Em 60 segundos</span></span></a></li>
                 <li><a href="#role"><span><span data-lang="en">Context &amp; my role</span><span data-lang="pt">Contexto e meu papel</span></span></a></li>
                 <li><a href="#problem"><span><span data-lang="en">The problem</span><span data-lang="pt">O problema</span></span></a></li>
                 <li><a href="#research"><span><span data-lang="en">User research</span><span data-lang="pt">Pesquisa com usuários</span></span></a></li>
@@ -117,20 +115,41 @@
           </details>
         </div>
 
-        <!-- 01 TL;DR -->
+        <!-- 01 IN 60 SECONDS -->
         <section class="chapter" id="tldr" aria-labelledby="h-tldr">
-          <span class="chapter__num hud">01</span>
-          <h2 id="h-tldr"><span data-lang="en">TL;DR</span><span data-lang="pt">Resumo</span></h2>
-          <div class="tldr">
-            <div class="card"><span class="hud hud--amber"><span data-lang="en">Problem</span><span data-lang="pt">Problema</span></span>
-              <p><span data-lang="en">Grocery shopping and paying force visually impaired people to depend on a companion or staff to read labels, prices, dates and bills.</span><span data-lang="pt">Fazer compras e pagar obriga pessoas com deficiência visual a depender de um acompanhante ou funcionário para ler rótulos, preços, validades e cédulas.</span></p></div>
-            <div class="card"><span class="hud hud--amber"><span data-lang="en">My role</span><span data-lang="pt">Meu papel</span></span>
-              <p><span data-lang="en">One of 3 PMs. I co-led research with 33 shoppers, defined personas and beachhead, benchmarked competitors, set the North Star and driver tree, and prioritized the “refuse, don’t guess” guardrail.</span><span data-lang="pt">Um dos 3 PMs. Co-liderei a pesquisa com 33 compradores, defini personas e segmento de entrada, fiz o benchmark de concorrentes, a North Star e a árvore de métricas, e priorizei o guardrail “recusar, não adivinhar”.</span></p></div>
-            <div class="card"><span class="hud hud--amber"><span data-lang="en">Solution</span><span data-lang="pt">Solução</span></span>
-              <p><span data-lang="en">A web-first voice loop with four in-store jobs: scene description, label reading (OCR), bill and receipt checks, and product comparison.</span><span data-lang="pt">Um loop de voz na web com quatro tarefas na loja: descrição do ambiente, leitura de rótulos (OCR), conferência de cédulas e recibos, e comparação de produtos.</span></p></div>
-            <div class="card"><span class="hud hud--amber"><span data-lang="en">Outcome</span><span data-lang="pt">Resultado</span></span>
-              <p><span data-lang="en">MVP shipped live at Demo Day (eyefriend.io) and voted #1 Best Project of the cohort by fellow participants.</span><span data-lang="pt">MVP lançado ao vivo no Demo Day (eyefriend.io) e eleito o 1º Melhor Projeto da turma pelos participantes.</span></p></div>
+          <div class="card summary60">
+            <span class="hud"><span data-lang="en">For recruiters</span><span data-lang="pt">Para recrutadores</span></span>
+            <h2 id="h-tldr" style="margin:4px 0 0"><span data-lang="en">EyeFriend in 60 seconds</span><span data-lang="pt">EyeFriend em 60 segundos</span></h2>
+            <div class="summary60__grid">
+              <div>
+                <h3><span data-lang="en">Problem</span><span data-lang="pt">Problema</span></h3>
+                <p><span data-lang="en">Visually impaired shoppers depend on a companion or staff to read labels, prices, expiry dates and bills.</span><span data-lang="pt">Pessoas com deficiência visual dependem de acompanhante ou funcionário para ler rótulos, preços, validades e cédulas.</span></p>
+              </div>
+              <div>
+                <h3><span data-lang="en">My role</span><span data-lang="pt">Meu papel</span></h3>
+                <p><span data-lang="en">One of 3 PMs in a 15-person cross-functional team, 11-week MVP sprint (PM Accelerator AI PM Bootcamp, Cohort 9).</span><span data-lang="pt">Um dos 3 PMs em um time multidisciplinar de 15 pessoas, sprint de MVP de 11 semanas (PM Accelerator AI PM Bootcamp, Cohort 9).</span></p>
+              </div>
+              <div>
+                <h3><span data-lang="en">What I did</span><span data-lang="pt">O que eu fiz</span></h3>
+                <ul>
+                  <li><span data-lang="en">Co-led research with 33 visually impaired shoppers</span><span data-lang="pt">Co-liderei a pesquisa com 33 compradores com deficiência visual</span></li>
+                  <li><span data-lang="en">5 personas → 2 beachhead segments; benchmark of 5 competitors</span><span data-lang="pt">5 personas → 2 segmentos de entrada; benchmark de 5 concorrentes</span></li>
+                  <li><span data-lang="en">North Star metric and AI quality targets</span><span data-lang="pt">North Star Metric e metas de qualidade da IA</span></li>
+                  <li><span data-lang="en">“Refuse rather than guess” guardrail for money answers</span><span data-lang="pt">Guardrail “recusar em vez de adivinhar” para dinheiro</span></li>
+                </ul>
+              </div>
+              <div>
+                <h3><span data-lang="en">Outcome</span><span data-lang="pt">Resultado</span></h3>
+                <p><span data-lang="en">MVP shipped live at Demo Day (eyefriend.io). Voted #1 Best Project of the cohort by fellow participants.</span><span data-lang="pt">MVP lançado ao vivo no Demo Day (eyefriend.io). Eleito o 1º Melhor Projeto da turma pelos participantes.</span></p>
+              </div>
+            </div>
+            <div class="summary60__skills">
+              <ul class="tags" aria-label="Skills shown">
+                <li>User research</li><li>Opportunity Solution Tree</li><li>Segmentation</li><li>Competitive analysis</li><li>North Star metric</li><li>AI guardrails</li><li>MVP scoping</li>
+              </ul>
+            </div>
           </div>
+          <p class="footnote" style="margin-top:14px"><span data-lang="en">The chapters below go deeper into each decision and the research behind it.</span><span data-lang="pt">Os capítulos abaixo aprofundam cada decisão e a pesquisa por trás dela.</span></p>
         </section>
 
         <!-- 02 ROLE -->
@@ -274,7 +293,7 @@
             <li><span data-lang="en"><strong>Trust in current tools is low.</strong> In a 2024 diary study with 16 blind and low-vision adults using an AI scene-description app, average trust was 2.43 out of 4 and satisfaction 2.76 out of 5.<span class="cite"><a href="#src-8" aria-label="Source 8">[8]</a></span></span><span data-lang="pt"><strong>A confiança nas ferramentas atuais é baixa.</strong> Em um estudo de diário de 2024 com 16 adultos cegos ou com baixa visão usando um app de descrição de cenas com IA, a confiança média foi 2,43 de 4 e a satisfação, 2,76 de 5.<span class="cite"><a href="#src-8" aria-label="Fonte 8">[8]</a></span></span></li>
             <li><span data-lang="en"><strong>Models are pushed to guess.</strong> OpenAI researchers argue that language models hallucinate partly because training and benchmarks reward confident guesses over admitting uncertainty.<span class="cite"><a href="#src-9" aria-label="Source 9">[9]</a></span></span><span data-lang="pt"><strong>Os modelos são incentivados a chutar.</strong> Pesquisadores da OpenAI argumentam que modelos de linguagem alucinam em parte porque o treino e os benchmarks premiam o chute confiante em vez de admitir incerteza.<span class="cite"><a href="#src-9" aria-label="Fonte 9">[9]</a></span></span></li>
             <li><span data-lang="en"><strong>Abstaining is a known technique.</strong> “Selective classification” lets a model reject low-confidence inputs to keep its error rate under a chosen level.<span class="cite"><a href="#src-10" aria-label="Source 10">[10]</a></span></span><span data-lang="pt"><strong>Abster-se é uma técnica conhecida.</strong> A “classificação seletiva” permite que o modelo rejeite entradas de baixa confiança para manter a taxa de erro abaixo de um nível escolhido.<span class="cite"><a href="#src-10" aria-label="Fonte 10">[10]</a></span></span></li>
-            <li><span data-lang="en"><strong>Design guidelines agree.</strong> Microsoft’s human-AI guidelines ask products to make clear how well the system can perform and to support easy correction;<span class="cite"><a href="#src-11" aria-label="Source 11">[11]</a></span> Google’s People + AI Guidebook treats errors and graceful failure as a core design topic.<span class="cite"><a href="#src-12" aria-label="Source 12">[12]</a></span> The underlying aim is <em>calibrated</em> trust, which human-factors research first studied in aviation automation.<span class="cite"><a href="#src-13" aria-label="Source 13">[13]</a></span></span><span data-lang="pt"><strong>As diretrizes de design concordam.</strong> As diretrizes humano-IA da Microsoft pedem que o produto deixe claro o quão bem funciona e facilite a correção;<span class="cite"><a href="#src-11" aria-label="Fonte 11">[11]</a></span> o People + AI Guidebook do Google trata erros e falha elegante como tema central.<span class="cite"><a href="#src-12" aria-label="Fonte 12">[12]</a></span> O objetivo de fundo é a confiança <em>calibrada</em>, estudada primeiro na automação da aviação.<span class="cite"><a href="#src-13" aria-label="Fonte 13">[13]</a></span></span></li>
+            <li><span data-lang="en"><strong>Design guidelines agree.</strong> Microsoft’s human-AI guidelines ask products to make clear how well the system can perform and to support easy correction;<span class="cite"><a href="#src-11" aria-label="Source 11">[11]</a></span> Google’s People + AI Guidebook treats errors and graceful failure as a core design topic.<span class="cite"><a href="#src-12" aria-label="Source 12">[12]</a></span> The underlying aim is <em>calibrated</em> trust: reliance that matches what the system can actually do.<span class="cite"><a href="#src-13" aria-label="Source 13">[13]</a></span></span><span data-lang="pt"><strong>As diretrizes de design concordam.</strong> As diretrizes humano-IA da Microsoft pedem que o produto deixe claro o quão bem funciona e facilite a correção;<span class="cite"><a href="#src-11" aria-label="Fonte 11">[11]</a></span> o People + AI Guidebook do Google trata erros e falha elegante como tema central.<span class="cite"><a href="#src-12" aria-label="Fonte 12">[12]</a></span> O objetivo de fundo é a confiança <em>calibrada</em>: confiar na medida do que o sistema realmente entrega.<span class="cite"><a href="#src-13" aria-label="Fonte 13">[13]</a></span></span></li>
           </ul>
 
           <h3><span data-lang="en">How it works at checkout: Elena’s journey</span><span data-lang="pt">Como funciona no caixa: a jornada da Elena</span></h3>
@@ -396,7 +415,6 @@
               <p class="footnote" style="margin-top:8px">R = Responsible · A = Accountable</p>
             </div>
           </div>
-          <div class="callout"><p><span data-lang="en"><strong>Aviation parallel:</strong> a pre-flight briefing sets objectives, risks and who does what before anything moves. Scope freeze plus RACI did the same job for a 15-person team on a short cadence.</span><span data-lang="pt"><strong>Paralelo com a aviação:</strong> o briefing antes do voo define objetivos, riscos e quem faz o quê antes de qualquer movimento. Congelamento de escopo e RACI cumpriram esse papel para um time de 15 pessoas em ciclos curtos.</span></p></div>
         </section>
 
         <!-- 14 OUTCOMES -->
