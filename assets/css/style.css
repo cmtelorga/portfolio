@@ -464,3 +464,75 @@ tr.is-us th, tr.is-us td { background: var(--accent-tint); color: var(--text); f
   .topbar, .toc, .toc-mobile, .lang-toggle, .hero__path { display: none !important; }
   body { background: #fff; }
 }
+
+/* ---------- Figures, app screenshots, illustrations ---------- */
+.figure { margin: 26px 0; }
+.figure img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); background: #fff; }
+.figure figcaption { font-size: .86rem; color: var(--text-3); margin-top: 8px; line-height: 1.5; }
+.figure--narrow { max-width: 480px; }
+.figure--center { margin-inline: auto; }
+
+.demo-pair { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.demo-pair img { height: 340px; width: auto; max-width: 100%; border-radius: 14px; border: 1px solid var(--line); background: #fff; box-shadow: var(--shadow); }
+.demo-pair .arrow { display: grid; justify-items: center; gap: 4px; color: var(--accent); font-size: .78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.demo-pair .arrow svg { width: 30px; height: 30px; }
+@media (max-width: 560px) {
+  .demo-pair img { height: 250px; }
+}
+
+.gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
+.gallery .wide { grid-column: 1 / -1; }
+@media (max-width: 640px) { .gallery { grid-template-columns: 1fr; } }
+.gallery figure { margin: 0; }
+
+/* landing: product proof row inside featured card */
+.feature__media { grid-column: 1 / -1; background: linear-gradient(180deg, var(--accent-tint), #fff); border-bottom: 1px solid var(--line); padding: 28px 24px 20px; }
+.feature__media figcaption { text-align: center; font-size: .88rem; color: var(--text-2); margin-top: 14px; }
+
+/* case hero with illustration */
+.case-hero__grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+.case-hero__art { margin: 0; }
+.case-hero__art img { width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+@media (max-width: 900px) { .case-hero__grid { grid-template-columns: 1fr; gap: 24px; } }
+
+/* ---------- Driver tree ---------- */
+.dtree { margin: 22px 0; display: grid; justify-items: center; }
+.dtree__node { width: 100%; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 20px; text-align: center; box-shadow: var(--shadow-sm); }
+.dtree__node p { margin: 4px 0 0; font-size: .94rem; }
+.dtree__node--biz { max-width: 560px; background: var(--surface-2); }
+.dtree__node--ns { max-width: 620px; border-color: #c9d9ee; background: var(--accent-tint); padding: 20px 24px; }
+.dtree__node--ns .title { font-size: 1.35rem; font-weight: 700; color: var(--accent-strong); letter-spacing: -.01em; margin-top: 4px; }
+.dtree__stem { width: 2px; height: 30px; background: var(--line-strong); position: relative; }
+.dtree__stem span { position: absolute; left: 10px; top: 6px; font-size: .72rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text-3); white-space: nowrap; }
+.dtree__fork { width: 50%; height: 22px; border: 2px solid var(--line-strong); border-bottom: 0; border-radius: 8px 8px 0 0; margin-top: 0; }
+.dtree__cols { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.dtree__cols .card { text-align: left; }
+@media (max-width: 760px) {
+  .dtree__fork { display: none; }
+  .dtree__cols { grid-template-columns: 1fr; }
+  .dtree__cols::before { content: ""; justify-self: center; width: 2px; height: 16px; background: var(--line-strong); }
+}
+
+/* ---------- AI path flowchart ---------- */
+.aiflow { margin: 22px 0; display: grid; justify-items: center; gap: 0; }
+.aiflow__node { width: 100%; max-width: 560px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; text-align: center; box-shadow: var(--shadow-sm); }
+.aiflow__node b { display: block; color: var(--text); font-weight: 600; }
+.aiflow__node small { display: block; color: var(--text-3); font-size: .84rem; margin-top: 2px; }
+.aiflow__node--gate { border-color: #c9d9ee; background: var(--accent-tint); }
+.aiflow__arrow { width: 2px; height: 22px; background: var(--line-strong); position: relative; }
+.aiflow__arrow::after { content: ""; position: absolute; left: -4px; bottom: -2px; border: 5px solid transparent; border-top-color: var(--line-strong); border-bottom: 0; }
+.aiflow__row { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.aiflow__row .aiflow__node { max-width: none; }
+.aiflow__row--2 { grid-template-columns: 1fr 1fr; max-width: 680px; }
+.aiflow__node--ok { border-color: #bfe3d0; background: var(--green-tint); }
+.aiflow__node--ok b { color: var(--green); }
+.aiflow__node--retry { border-color: var(--amber-line); background: var(--amber-tint); }
+.aiflow__node--retry b { color: var(--amber); }
+.aiflow__tag { display: inline-block; margin-top: 6px; font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent-strong); background: #fff; border: 1px solid #c9d9ee; border-radius: 5px; padding: 1px 6px; }
+@media (max-width: 700px) { .aiflow__row, .aiflow__row--2 { grid-template-columns: 1fr; } }
+
+/* ---------- Strategy trio ---------- */
+.trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
+@media (max-width: 760px) { .trio { grid-template-columns: 1fr; } }
+.trio .card { padding: 18px; }
+.trio .card p { margin: 6px 0 0; font-size: .93rem; }

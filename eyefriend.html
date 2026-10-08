@@ -44,6 +44,8 @@
   <!-- ================= CASE HERO ================= -->
   <section class="case-hero" aria-labelledby="case-title">
     <div class="wrap">
+      <div class="case-hero__grid">
+        <div>
       <span class="hud"><span data-lang="en">Case study · AI product</span><span data-lang="pt">Estudo de caso · Produto de IA</span></span>
       <h1 id="case-title" style="margin-top:10px">EyeFriend</h1>
       <p class="case-hero__lead">
@@ -57,6 +59,11 @@
         <span class="chip">PM Accelerator AI PM Bootcamp · Cohort 9</span>
         <span class="chip chip--award">★ <span data-lang="en">#1 Best Project (peer-voted)</span><span data-lang="pt">1º Melhor Projeto (voto dos participantes)</span></span>
       </div>
+            </div>
+      <figure class="case-hero__art">
+        <img src="assets/img/ef/ill-hero.jpg" width="1400" height="782" alt="Illustration: a hand points a smartphone at a grocery shelf while sound waves come from the phone, as if it were reading a label aloud.">
+      </figure>
+    </div>
     </div>
   </section>
 
@@ -185,11 +192,21 @@
           <h2 id="h-problem"><span data-lang="en">The problem</span><span data-lang="pt">O problema</span></h2>
           <p><span data-lang="en">The World Health Organization estimates that at least <strong>2.2 billion people</strong> have a vision impairment.<span class="cite"><a href="#src-1" aria-label="Source 1">[1]</a></span> For many of them, an ordinary grocery run turns into a dependency: someone else has to read the label, confirm the price, check the expiry date or count the change.</span><span data-lang="pt">A Organização Mundial da Saúde estima que pelo menos <strong>2,2 bilhões de pessoas</strong> têm algum tipo de deficiência visual.<span class="cite"><a href="#src-1" aria-label="Fonte 1">[1]</a></span> Para muitas delas, uma ida ao supermercado vira dependência: outra pessoa precisa ler o rótulo, confirmar o preço, checar a validade ou contar o troco.</span></p>
           <p><span data-lang="en">We framed it as a <strong>job to be done</strong>: the progress a person is trying to make in a specific circumstance, not a feature request.<span class="cite"><a href="#src-2" aria-label="Source 2">[2]</a></span> The job: <em>“buy what I need and pay correctly, on my own.”</em></span><span data-lang="pt">Enquadramos como um <strong>job to be done</strong>: o progresso que a pessoa tenta fazer em uma circunstância específica, e não um pedido de funcionalidade.<span class="cite"><a href="#src-2" aria-label="Fonte 2">[2]</a></span> O job: <em>“comprar o que preciso e pagar certo, sozinho.”</em></span></p>
+          <figure class="figure">
+            <img src="assets/img/ef/ill-shelf.jpg" width="1200" height="675" loading="lazy" alt="Illustration: grocery shelves full of similar-looking packages with tiny labels; one package is highlighted in amber.">
+            <figcaption><span data-lang="en">Similar packages and small print: the everyday friction we designed for. Illustration.</span><span data-lang="pt">Embalagens parecidas e letras pequenas: o atrito do dia a dia para o qual desenhamos. Ilustração.</span></figcaption>
+          </figure>
           <div class="grid-2" style="margin-top:18px">
             <div class="card"><h3 style="margin:0"><span data-lang="en">Can’t read small labels</span><span data-lang="pt">Não consegue ler rótulos pequenos</span></h3><p style="margin:6px 0 0"><span data-lang="en">Ingredients, allergens and instructions are invisible.</span><span data-lang="pt">Ingredientes, alergênicos e instruções ficam invisíveis.</span></p></div>
             <div class="card"><h3 style="margin:0"><span data-lang="en">Prices and expiry are hidden</span><span data-lang="pt">Preço e validade escondidos</span></h3><p style="margin:6px 0 0"><span data-lang="en">No reliable way to confirm a price tag or a use-by date.</span><span data-lang="pt">Não há forma confiável de confirmar etiqueta de preço ou data de validade.</span></p></div>
             <div class="card"><h3 style="margin:0"><span data-lang="en">Paying is stressful</span><span data-lang="pt">Pagar gera ansiedade</span></h3><p style="margin:6px 0 0"><span data-lang="en">Bills and receipts can’t be verified without a second person.</span><span data-lang="pt">Cédulas e recibos não podem ser conferidos sem uma segunda pessoa.</span></p></div>
             <div class="card"><h3 style="margin:0"><span data-lang="en">Today’s tools don’t fit the aisle</span><span data-lang="pt">As ferramentas atuais não servem no corredor</span></h3><p style="margin:6px 0 0"><span data-lang="en">Existing apps are general-purpose (snapshot Q&amp;A, human volunteers, costly wearables), not built for the grocery and checkout flow.</span><span data-lang="pt">Os apps existentes são genéricos (pergunta sobre foto, voluntários humanos, wearables caros), não feitos para o fluxo de compra e caixa.</span></p></div>
+          </div>
+          <h3><span data-lang="en">The cost of doing nothing</span><span data-lang="pt">O custo de não fazer nada</span></h3>
+          <div class="grid-3">
+            <div class="card"><span class="hud hud--amber"><span data-lang="en">Lost autonomy</span><span data-lang="pt">Perda de autonomia</span></span><p style="margin:6px 0 0"><span data-lang="en">Every trip needs a companion or a staff member.</span><span data-lang="pt">Toda ida às compras precisa de acompanhante ou funcionário.</span></p></div>
+            <div class="card"><span class="hud hud--amber"><span data-lang="en">Payment errors</span><span data-lang="pt">Erros no pagamento</span></span><p style="margin:6px 0 0"><span data-lang="en">Wrong change or mis-charges go unnoticed.</span><span data-lang="pt">Troco errado ou cobrança indevida passam despercebidos.</span></p></div>
+            <div class="card"><span class="hud hud--amber"><span data-lang="en">Wrong purchases</span><span data-lang="pt">Compras erradas</span></span><p style="margin:6px 0 0"><span data-lang="en">Expired items and allergens slip through.</span><span data-lang="pt">Produtos vencidos e alergênicos passam.</span></p></div>
           </div>
         </section>
 
@@ -216,6 +233,10 @@
           </div>
           <p class="footnote"><span data-lang="en">32 of the 33 participants named a primary friction. Remaining answers were spread across other categories.</span><span data-lang="pt">32 dos 33 participantes apontaram um atrito principal. As demais respostas se dividiram em outras categorias.</span></p>
 
+          <figure class="figure figure--narrow">
+            <img src="assets/img/ef/deck-routine.png" width="865" height="480" loading="lazy" alt="Donut chart of participants' shopping routine: 55% multi-weekly independent, 21% weekly independent, 12% bi-weekly with a companion, 12% delivery only.">
+            <figcaption><span data-lang="en">Shopping routine of research participants (%). From the team’s research synthesis.</span><span data-lang="pt">Rotina de compras dos participantes da pesquisa (%). Da síntese de pesquisa do time.</span></figcaption>
+          </figure>
           <h3><span data-lang="en">Three insights that shaped the product</span><span data-lang="pt">Três insights que moldaram o produto</span></h3>
           <div class="grid-3">
             <div class="card"><span class="hud">55%</span><p style="margin:8px 0 0"><span data-lang="en">shop multiple times a week, alone. High-frequency pain means a strong daily pull.</span><span data-lang="pt">compram várias vezes por semana, sozinhos. Dor frequente significa uso diário.</span></p></div>
@@ -267,6 +288,14 @@
               </tbody>
             </table>
           </div>
+          <h3><span data-lang="en">Positioning</span><span data-lang="pt">Posicionamento</span></h3>
+          <div class="callout callout--cyan"><p><span data-lang="en">“For visually impaired shoppers at the aisle and the till, EyeFriend is the purpose-built, confidence-qualified voice assistant that turns a dependent errand into an independent one, where general tools only describe a snapshot.”</span><span data-lang="pt">“Para pessoas com deficiência visual no corredor e no caixa, o EyeFriend é o assistente de voz feito sob medida, que sinaliza a própria confiança e transforma uma tarefa dependente em independente, enquanto as ferramentas genéricas só descrevem uma foto.”</span></p></div>
+          <div class="trio">
+            <div class="card"><span class="hud"><span data-lang="en">Wedge</span><span data-lang="pt">Entrada</span></span><p><span data-lang="en">Checkout and elderly low-vision shoppers: the highest-anxiety moments and the lowest-risk first pilot.</span><span data-lang="pt">Caixa e idosos com baixa visão: os momentos de maior ansiedade e o piloto inicial de menor risco.</span></p></div>
+            <div class="card"><span class="hud"><span data-lang="en">Moat</span><span data-lang="pt">Defesa</span></span><p><span data-lang="en">Accessibility-interaction data plus a therapist and retail referral network, which deepen with every assist.</span><span data-lang="pt">Dados de interação de acessibilidade e uma rede de indicação de terapeutas e varejo, que crescem a cada assistência.</span></p></div>
+            <div class="card"><span class="hud"><span data-lang="en">Flywheel</span><span data-lang="pt">Ciclo</span></span><p><span data-lang="en">More successful assists → better data and more referrals → better outcomes for the next users.</span><span data-lang="pt">Mais assistências bem-sucedidas → dados melhores e mais indicações → resultados melhores para os próximos usuários.</span></p></div>
+          </div>
+          <p class="footnote" style="margin-top:10px"><span data-lang="en">Strategy hypotheses from the Demo Day pitch, not yet validated in market.</span><span data-lang="pt">Hipóteses de estratégia do pitch do Demo Day, ainda não validadas no mercado.</span></p>
         </section>
 
         <!-- 07 SOLUTION -->
@@ -274,6 +303,30 @@
           <span class="chapter__num hud">07</span>
           <h2 id="h-solution"><span data-lang="en">Solution &amp; MVP scope</span><span data-lang="pt">Solução e escopo do MVP</span></h2>
           <p><span data-lang="en">One voice loop covering four in-store jobs. We scoped it as a <strong>Minimum Viable Product</strong> in the Lean Startup sense: the smallest thing that lets us learn from real users, not a reduced version of the final product.<span class="cite"><a href="#src-6" aria-label="Source 6">[6]</a></span> Web-first, so there is nothing to install.</span><span data-lang="pt">Um loop de voz cobrindo quatro tarefas na loja. Definimos o escopo como <strong>MVP</strong> no sentido do Lean Startup: o mínimo que permite aprender com usuários reais, e não uma versão reduzida do produto final.<span class="cite"><a href="#src-6" aria-label="Fonte 6">[6]</a></span> Na web, então não há nada para instalar.</span></p>
+          <h3><span data-lang="en">The product, working</span><span data-lang="pt">O produto funcionando</span></h3>
+          <figure class="figure">
+            <div class="demo-pair">
+              <img src="assets/img/ef/app-mobile-camera.jpg" width="700" height="1135" loading="lazy" alt="EyeFriend on a phone in live mode, with the back camera pointed at a can of Nestlé Ninho whole powdered milk.">
+              <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-lang="en">spoken</span><span data-lang="pt">falado</span></span>
+              <img src="assets/img/ef/app-mobile-result.jpg" width="620" height="1104" loading="lazy" alt="EyeFriend task result, Product recognition: “This is Nestlé Ninho Leite Integral powdered milk, 380 grams.”">
+            </div>
+            <figcaption style="text-align:center"><span data-lang="en">Live test on a phone: the camera sees the can, EyeFriend identifies product and size and reads it aloud.</span><span data-lang="pt">Teste ao vivo no celular: a câmera vê a lata, o EyeFriend identifica produto e tamanho e fala em voz alta.</span></figcaption>
+          </figure>
+          <div class="gallery">
+            <figure class="figure">
+              <img src="assets/img/ef/app-home.png" width="630" height="601" loading="lazy" alt="EyeFriend home screen: “Hello. How can I help?” with one large Get Started microphone button and Mic Ready and Camera Ready status chips.">
+              <figcaption><span data-lang="en">One large, single-tap entry point with mic and camera status.</span><span data-lang="pt">Um único botão grande para começar, com status de microfone e câmera.</span></figcaption>
+            </figure>
+            <figure class="figure">
+              <img src="assets/img/ef/app-compare.png" width="540" height="580" loading="lazy" alt="EyeFriend task result for product comparison, offering two choices: compare nutrition facts or compare price.">
+              <figcaption><span data-lang="en">Comparison asks what matters to the user: nutrition or price.</span><span data-lang="pt">A comparação pergunta o que importa: nutrição ou preço.</span></figcaption>
+            </figure>
+            <figure class="figure wide">
+              <img src="assets/img/ef/app-suggestions.png" width="1112" height="550" loading="lazy" alt="Voice suggestions: Describe what's around me, Read this label, Which brand has less sugar?, Compare price, What's the difference between these two products, What bill is this?">
+              <figcaption><span data-lang="en">Suggested voice requests map directly to the four in-store jobs.</span><span data-lang="pt">Sugestões de comandos de voz ligadas diretamente às quatro tarefas na loja.</span></figcaption>
+            </figure>
+          </div>
+          <h3><span data-lang="en">Four in-store jobs</span><span data-lang="pt">Quatro tarefas na loja</span></h3>
           <div class="features">
             <div class="card"><span class="hud">01</span><h3><span data-lang="en">Real-time scene description</span><span data-lang="pt">Descrição do ambiente em tempo real</span></h3><p style="margin:0"><span data-lang="en">Describes surroundings and obstacles as the user moves.</span><span data-lang="pt">Descreve o entorno e obstáculos enquanto a pessoa anda.</span></p><div class="quote-ui"><span data-lang="en">“Produce section is ~10 steps ahead; a promo stand is slightly left.”</span><span data-lang="pt">“O hortifrúti está ~10 passos à frente; tem um stand de promoção levemente à esquerda.”</span></div></div>
             <div class="card"><span class="hud">02</span><h3><span data-lang="en">Label reading (OCR)</span><span data-lang="pt">Leitura de rótulos (OCR)</span></h3><p style="margin:0"><span data-lang="en">Reads labels, prices, aisle boards and dates aloud.</span><span data-lang="pt">Lê em voz alta rótulos, preços, placas e datas.</span></p><div class="quote-ui"><span data-lang="en">“This rice bag expires 04-03-2027.”</span><span data-lang="pt">“Este pacote de arroz vence em 04-03-2027.”</span></div></div>
@@ -288,6 +341,10 @@
           <span class="chapter__num hud">08</span>
           <h2 id="h-guardrails"><span data-lang="en">AI design &amp; guardrails</span><span data-lang="pt">Design de IA e guardrails</span></h2>
           <p><span data-lang="en">The key product decision: <strong>when a price, date or bill is unclear, EyeFriend flags the uncertainty and asks the user to re-frame. It does not guess.</strong> Research supports this choice from several angles:</span><span data-lang="pt">A decisão de produto central: <strong>quando preço, data ou cédula não estão claros, o EyeFriend sinaliza a incerteza e pede para reenquadrar a câmera. Ele não chuta.</strong> A pesquisa sustenta essa escolha por vários ângulos:</span></p>
+          <figure class="figure figure--narrow figure--center">
+            <img src="assets/img/ef/ill-guardrail.jpg" width="1000" height="747" loading="lazy" alt="Illustration: a phone shows a large question mark and a retry arrow next to a blurred banknote, an assistant that asks instead of guessing.">
+            <figcaption><span data-lang="en">When confidence is low, ask the user to re-frame instead of guessing. Illustration.</span><span data-lang="pt">Com baixa confiança, pedir para reenquadrar em vez de chutar. Ilustração.</span></figcaption>
+          </figure>
           <ul>
             <li><span data-lang="en"><strong>Real-world photos from blind users are hard.</strong> In VizWiz, a dataset of 31,000+ visual questions from blind people, many images are low quality and many questions cannot be answered from the photo.<span class="cite"><a href="#src-7" aria-label="Source 7">[7]</a></span></span><span data-lang="pt"><strong>Fotos reais tiradas por pessoas cegas são difíceis.</strong> No VizWiz, base com mais de 31 mil perguntas visuais feitas por pessoas cegas, muitas imagens têm baixa qualidade e muitas perguntas não podem ser respondidas pela foto.<span class="cite"><a href="#src-7" aria-label="Fonte 7">[7]</a></span></span></li>
             <li><span data-lang="en"><strong>Trust in current tools is low.</strong> In a 2024 diary study with 16 blind and low-vision adults using an AI scene-description app, average trust was 2.43 out of 4 and satisfaction 2.76 out of 5.<span class="cite"><a href="#src-8" aria-label="Source 8">[8]</a></span></span><span data-lang="pt"><strong>A confiança nas ferramentas atuais é baixa.</strong> Em um estudo de diário de 2024 com 16 adultos cegos ou com baixa visão usando um app de descrição de cenas com IA, a confiança média foi 2,43 de 4 e a satisfação, 2,76 de 5.<span class="cite"><a href="#src-8" aria-label="Fonte 8">[8]</a></span></span></li>
@@ -297,18 +354,12 @@
           </ul>
 
           <h3><span data-lang="en">How it works at checkout: Elena’s journey</span><span data-lang="pt">Como funciona no caixa: a jornada da Elena</span></h3>
-          <div class="flow">
-            <div class="card"><span class="hud">1 · <span data-lang="en">Capture bill</span><span data-lang="pt">Capturar cédula</span></span><p><span data-lang="en">Elena asks by voice to scan a $20 bill.</span><span data-lang="pt">Elena pede por voz para ler uma nota de 20 dólares.</span></p></div>
-            <div class="card"><span class="hud">2 · <span data-lang="en">Read receipt</span><span data-lang="pt">Ler recibo</span></span><p><span data-lang="en">OCR extracts the total from the paper receipt.</span><span data-lang="pt">O OCR extrai o total do recibo de papel.</span></p></div>
-            <div class="card"><span class="hud">3 · <span data-lang="en">Cross-check</span><span data-lang="pt">Conferir</span></span><p><span data-lang="en">The system compares cash handed over with the total.</span><span data-lang="pt">O sistema compara o dinheiro entregue com o total.</span></p></div>
-            <div class="card"><span class="hud">4 · <span data-lang="en">Speak</span><span data-lang="pt">Falar</span></span><p><span data-lang="en">Change due is read aloud, with a target of under 3 seconds.</span><span data-lang="pt">O troco é dito em voz alta, com meta de menos de 3 segundos.</span></p></div>
-          </div>
-          <div class="flow__fail" role="list" aria-label="Failure handling">
-            <span class="pill pill--ok" role="listitem">✔ <span data-lang="en">Clear receipt</span><span data-lang="pt">Recibo legível</span></span>
-            <span class="pill pill--bad" role="listitem">✖ <span data-lang="en">Crinkled paper / lag</span><span data-lang="pt">Papel amassado / atraso</span></span>
-            <span class="pill pill--bad" role="listitem">✖ <span data-lang="en">Low confidence</span><span data-lang="pt">Baixa confiança</span></span>
-            <span class="pill pill--warn" role="listitem">⚠ <span data-lang="en">“Visual unclear, re-align”: try-again loop instead of a guess</span><span data-lang="pt">“Imagem pouco clara, reenquadre”: nova tentativa em vez de chute</span></span>
-          </div>
+          <figure class="figure">
+            <a href="assets/img/ef/deck-elena-journey.png" target="_blank" rel="noopener">
+              <img src="assets/img/ef/deck-elena-journey.png" width="1600" height="773" loading="lazy" alt="Elena's journey, point-of-sale verification. Step 1, capture bill: Elena asks by voice to scan a $20 bill. Step 2, OCR verification: the app reads the paper receipt total. Step 3, cross-audit: cash handed over is checked against the total. Step 4, audio output: change due is read aloud in under 3 seconds. Outcome: independence. A happy path (clear receipt read) and a failure path (crinkled paper or lag, low confidence score) both end in a try-again loop, “Visual unclear, re-align”, instead of a guess. Under the hood: Roboflow bill model (about 94% accuracy), Azure Custom Vision, FFmpeg at 1 fps; FastAPI and Redis gateway, Supabase schemas; OCR price extraction and validation; WebSocket stream and Web Speech TTS.">
+            </a>
+            <figcaption><span data-lang="en">Happy path vs. failure path at checkout: low confidence triggers a re-align loop instead of a guess. From the team’s Demo Day deck. Click to enlarge.</span><span data-lang="pt">Caminho feliz vs. caminho de falha no caixa: baixa confiança aciona um ciclo de reenquadrar em vez de chute. Do deck do Demo Day do time. Clique para ampliar.</span></figcaption>
+          </figure>
 
           <h3><span data-lang="en">Money math stays out of the LLM</span><span data-lang="pt">A conta de dinheiro fica fora do LLM</span></h3>
           <p><span data-lang="en">The team put a <strong>deterministic price engine</strong> (unit-price math, no LLM) next to Gemini, behind one shared JSON contract. This follows a well-established pattern: letting language models call tools such as a calculator improves results on arithmetic,<span class="cite"><a href="#src-14" aria-label="Source 14">[14]</a></span> and benchmarks show multimodal models still make OCR mistakes on harder text.<span class="cite"><a href="#src-15" aria-label="Source 15">[15]</a></span> The bill-recognition model scored about 94% accuracy in the team’s tests, which is exactly why the abstain-and-retry path matters.</span><span data-lang="pt">O time colocou um <strong>motor de preços determinístico</strong> (cálculo de preço unitário, sem LLM) ao lado do Gemini, atrás de um contrato JSON único. Isso segue um padrão consolidado: deixar modelos de linguagem usarem ferramentas como calculadora melhora o resultado em aritmética,<span class="cite"><a href="#src-14" aria-label="Fonte 14">[14]</a></span> e benchmarks mostram que modelos multimodais ainda erram OCR em textos mais difíceis.<span class="cite"><a href="#src-15" aria-label="Fonte 15">[15]</a></span> O modelo de reconhecimento de cédulas teve cerca de 94% de acurácia nos testes do time, e é justamente por isso que o caminho de abster-se e tentar de novo importa.</span> <span class="label-tag label-tag--measured"><span data-lang="en">team-reported</span><span data-lang="pt">medido pelo time</span></span></p>
@@ -319,12 +370,33 @@
           <span class="chapter__num hud">09</span>
           <h2 id="h-architecture"><span data-lang="en">Architecture</span><span data-lang="pt">Arquitetura</span></h2>
           <p><span data-lang="en">A pragmatic, multi-cloud pipeline built around a sub-3-second voice loop. Usability research puts 1 second as the limit for keeping a user’s flow of thought and 10 seconds as the limit for holding attention;<span class="cite"><a href="#src-16" aria-label="Source 16">[16]</a></span> for someone standing in an aisle without visual feedback, we aimed well inside that window. The engineering was built by the team; my part was setting the latency and accuracy targets as product requirements.</span><span data-lang="pt">Um pipeline pragmático e multi-cloud em torno de um loop de voz abaixo de 3 segundos. Pesquisas de usabilidade colocam 1 segundo como limite para manter o fluxo de pensamento do usuário e 10 segundos como limite para manter a atenção;<span class="cite"><a href="#src-16" aria-label="Fonte 16">[16]</a></span> para alguém parado no corredor sem retorno visual, miramos bem dentro dessa janela. A engenharia foi do time; minha parte foi definir as metas de latência e acurácia como requisitos de produto.</span></p>
-          <div class="arch">
-            <div class="card card--hud"><span class="hud"><span data-lang="en">Browser</span><span data-lang="pt">Navegador</span></span><ul><li>React · Vercel · NextAuth</li><li>Zustand</li><li>Web Speech API (STT)</li><li>WebSocket streams</li></ul></div>
-            <div class="card card--hud"><span class="hud">Ingest + Gemini</span><ul><li>Python · OpenCV · FFmpeg</li><li><span data-lang="en">Gemini API, multimodal</span><span data-lang="pt">Gemini API, multimodal</span></li><li><span data-lang="en">Intent router (rules → AI)</span><span data-lang="pt">Roteador de intenção (regras → IA)</span></li><li>Gemini TTS</li></ul></div>
-            <div class="card card--hud"><span class="hud">Azure</span><ul><li>Custom Vision</li><li><span data-lang="en">Bill / currency routing</span><span data-lang="pt">Roteamento de cédulas</span></li><li><span data-lang="en">Denomination checks</span><span data-lang="pt">Checagem de valor</span></li><li><span data-lang="en">Failover</span><span data-lang="pt">Failover</span></li></ul></div>
-            <div class="card card--hud"><span class="hud"><span data-lang="en">Data layer</span><span data-lang="pt">Dados</span></span><ul><li>FastAPI · Celery · Redis</li><li>Supabase / Postgres</li><li><span data-lang="en">Unified JSON contract</span><span data-lang="pt">Contrato JSON único</span></li><li><span data-lang="en">Observability: Langtrace</span><span data-lang="pt">Observabilidade: Langtrace</span></li></ul></div>
+          <h3><span data-lang="en">The AI path, simplified</span><span data-lang="pt">O caminho da IA, simplificado</span></h3>
+          <div class="aiflow" role="group" aria-label="Simplified AI request flow">
+            <div class="aiflow__node"><b><span data-lang="en">Voice request + camera frame</span><span data-lang="pt">Pedido por voz + imagem da câmera</span></b><small><span data-lang="en">Single tap, speech-to-text in the browser</span><span data-lang="pt">Um toque, voz convertida em texto no navegador</span></small></div>
+            <div class="aiflow__arrow" aria-hidden="true"></div>
+            <div class="aiflow__node"><b><span data-lang="en">Intent router</span><span data-lang="pt">Roteador de intenção</span></b><small><span data-lang="en">Rules first, AI only when needed</span><span data-lang="pt">Regras primeiro, IA só quando precisa</span></small></div>
+            <div class="aiflow__arrow" aria-hidden="true"></div>
+            <div class="aiflow__row">
+              <div class="aiflow__node"><b><span data-lang="en">Scene, labels, products</span><span data-lang="pt">Cena, rótulos, produtos</span></b><small>Gemini multimodal</small></div>
+              <div class="aiflow__node"><b><span data-lang="en">Bills &amp; currency</span><span data-lang="pt">Cédulas e moedas</span></b><small>Azure Custom Vision</small></div>
+              <div class="aiflow__node"><b><span data-lang="en">Price math</span><span data-lang="pt">Conta de preço</span></b><small><span data-lang="en">Deterministic engine</span><span data-lang="pt">Motor determinístico</span></small><span class="aiflow__tag"><span data-lang="en">no LLM</span><span data-lang="pt">sem LLM</span></span></div>
+            </div>
+            <div class="aiflow__arrow" aria-hidden="true"></div>
+            <div class="aiflow__node aiflow__node--gate"><b><span data-lang="en">One JSON contract + confidence check</span><span data-lang="pt">Contrato JSON único + checagem de confiança</span></b><small><span data-lang="en">Every path returns the same schema; low-confidence answers are intercepted</span><span data-lang="pt">Todo caminho devolve o mesmo formato; respostas de baixa confiança são barradas</span></small></div>
+            <div class="aiflow__arrow" aria-hidden="true"></div>
+            <div class="aiflow__row aiflow__row--2">
+              <div class="aiflow__node aiflow__node--ok"><b>✔ <span data-lang="en">Confident</span><span data-lang="pt">Confiante</span></b><small><span data-lang="en">Spoken answer, target under 3 s</span><span data-lang="pt">Resposta falada, meta abaixo de 3 s</span></small></div>
+              <div class="aiflow__node aiflow__node--retry"><b>↺ <span data-lang="en">Not sure</span><span data-lang="pt">Sem certeza</span></b><small><span data-lang="en">“Visual unclear, re-align”: try again instead of guessing</span><span data-lang="pt">“Imagem pouco clara, reenquadre”: tentar de novo em vez de chutar</span></small></div>
+            </div>
           </div>
+          <p class="footnote"><span data-lang="en">Simplified from the team’s architecture below. My part: the product requirements for latency, accuracy and the refuse-rather-than-guess rule.</span><span data-lang="pt">Simplificado a partir da arquitetura do time, abaixo. Minha parte: os requisitos de produto de latência, acurácia e a regra de recusar em vez de adivinhar.</span></p>
+          <h3><span data-lang="en">Full system architecture</span><span data-lang="pt">Arquitetura completa do sistema</span></h3>
+          <figure class="figure">
+            <a href="assets/img/ef/deck-architecture.png" target="_blank" rel="noopener">
+              <img src="assets/img/ef/deck-architecture.png" width="1600" height="1019" loading="lazy" alt="System architecture. Client in the browser: React frontend, mic + camera + touch capture, Web Speech API speech-to-text, delivery layer with TTS, haptics and captions. A Python FFmpeg service and a FastAPI gateway route frames, audio and transcripts to parallel AI blocks: Gemini multimodal (scene, product, text, price, receipt) and Azure Custom Vision (OCR, bill detection, receipt failover). A response-fusion step merges and ranks results into one JSON contract and returns the spoken result. Backend and data: Celery workers, Redis, Supabase and a context loop that feeds session memory back to the AI. GitHub pushes to Render for deployment.">
+            </a>
+            <figcaption><span data-lang="en">System architecture, built by the engineering pods. From the team’s Demo Day deck. Click to enlarge.</span><span data-lang="pt">Arquitetura do sistema, construída pelos pods de engenharia. Do deck do Demo Day do time. Clique para ampliar.</span></figcaption>
+          </figure>
           <p class="concept"><b><span data-lang="en">Why rules before AI in the router:</span><span data-lang="pt">Por que regras antes da IA no roteador:</span></b> <span data-lang="en">simple, predictable intents are handled without a model call, which saves latency and cost and makes behavior easier to test.</span><span data-lang="pt">intenções simples e previsíveis são resolvidas sem chamar o modelo, o que economiza latência e custo e deixa o comportamento mais fácil de testar.</span></p>
         </section>
 
@@ -333,13 +405,14 @@
           <span class="chapter__num hud">10</span>
           <h2 id="h-metrics"><span data-lang="en">Metrics &amp; North Star</span><span data-lang="pt">Métricas e North Star</span></h2>
           <p><span data-lang="en">I defined a <strong>North Star Metric</strong>: one measure of the core value users get, supported by input metrics the team can move.<span class="cite"><a href="#src-17" aria-label="Source 17">[17]</a></span> The lagging metrics map onto Google’s HEART framework (task success, retention, happiness).<span class="cite"><a href="#src-18" aria-label="Source 18">[18]</a></span></span><span data-lang="pt">Defini uma <strong>North Star Metric</strong>: uma medida do valor central entregue ao usuário, sustentada por métricas de entrada que o time consegue mover.<span class="cite"><a href="#src-17" aria-label="Fonte 17">[17]</a></span> As métricas de resultado se encaixam no framework HEART do Google (sucesso na tarefa, retenção, satisfação).<span class="cite"><a href="#src-18" aria-label="Fonte 18">[18]</a></span></span></p>
-          <div class="card ns">
-            <span class="hud">North Star</span>
-            <div class="title"><span data-lang="en">Successful Assists per Session</span><span data-lang="pt">Assistências bem-sucedidas por sessão</span></div>
-            <p><span data-lang="en">Completed intents with no same-feature retry within 10 seconds, divided by sessions with at least one capture.</span><span data-lang="pt">Intenções concluídas sem nova tentativa da mesma função em até 10 segundos, divididas pelas sessões com pelo menos uma captura.</span></p>
-          </div>
           <div class="callout"><p><span data-lang="en"><strong>Honest note:</strong> the numbers below are <strong>targets</strong>, not results. Our rule was “no targets before a baseline”: two weeks of measurement first, then commit.</span><span data-lang="pt"><strong>Nota honesta:</strong> os números abaixo são <strong>metas</strong>, não resultados. Nossa regra era “nenhuma meta antes de uma linha de base”: duas semanas medindo primeiro, depois compromisso.</span></p></div>
-          <div class="kpis">
+          <div class="dtree" role="group" aria-label="Metrics driver tree">
+            <div class="dtree__node dtree__node--biz"><span class="hud hud--muted"><span data-lang="en">Business</span><span data-lang="pt">Negócio</span></span><p><span data-lang="en">Partner-channel LTV:CAC ≥ 3× · gross margin per active user</span><span data-lang="pt">LTV:CAC do canal de parceiros ≥ 3× · margem bruta por usuário ativo</span> <span class="label-tag label-tag--target"><span data-lang="en">target</span><span data-lang="pt">meta</span></span></p></div>
+            <div class="dtree__stem" aria-hidden="true"><span><span data-lang="en">drives</span><span data-lang="pt">sustenta</span></span></div>
+            <div class="dtree__node dtree__node--ns"><span class="hud">North Star</span><div class="title"><span data-lang="en">Successful Assists per Session</span><span data-lang="pt">Assistências bem-sucedidas por sessão</span></div><p><span data-lang="en">Completed intents with no same-feature retry within 10 seconds, divided by sessions with at least one capture.</span><span data-lang="pt">Intenções concluídas sem nova tentativa da mesma função em até 10 segundos, divididas pelas sessões com pelo menos uma captura.</span></p></div>
+            <div class="dtree__stem" aria-hidden="true"><span><span data-lang="en">driven by</span><span data-lang="pt">movida por</span></span></div>
+            <div class="dtree__fork" aria-hidden="true"></div>
+            <div class="dtree__cols">
             <div class="card">
               <span class="hud"><span data-lang="en">Leading · engineering-controllable</span><span data-lang="pt">Antecedentes · controláveis pela engenharia</span></span>
               <ul class="kpi-list">
@@ -359,6 +432,7 @@
                 <li><span><span data-lang="en">Task independence</span><span data-lang="pt">Independência na tarefa</span></span><span><span data-lang="en">survey</span><span data-lang="pt">questionário</span></span></li>
                 <li><span><span data-lang="en">Week-4 assist retention</span><span data-lang="pt">Retenção na semana 4</span></span><span><span data-lang="en">cohorted</span><span data-lang="pt">por coorte</span></span></li>
               </ul>
+            </div>
             </div>
           </div>
           <h3><span data-lang="en">Measurement discipline</span><span data-lang="pt">Disciplina de medição</span></h3>
@@ -396,6 +470,10 @@
           <span class="chapter__num hud">13</span>
           <h2 id="h-team"><span data-lang="en">Team &amp; ways of working</span><span data-lang="pt">Time e forma de trabalho</span></h2>
           <p><span data-lang="en">Fifteen people in cross-functional pods (product, design, frontend, backend, data science) working on a 2–3 day cadence. Tools: Trello, GitHub, Google Drive, Discord and Vercel.</span><span data-lang="pt">Quinze pessoas em pods multidisciplinares (produto, design, frontend, backend, ciência de dados) em ciclos de 2 a 3 dias. Ferramentas: Trello, GitHub, Google Drive, Discord e Vercel.</span></p>
+          <figure class="figure">
+            <img src="assets/img/ef/ill-team.jpg" width="1400" height="782" loading="lazy" alt="Illustration: many simple, diverse, faceless figures in small groups connected by thin lines to a small amber star at the center.">
+            <figcaption><span data-lang="en">Cross-functional pods connected by one shared contract and one goal. Illustration.</span><span data-lang="pt">Pods multidisciplinares conectados por um contrato comum e um objetivo. Ilustração.</span></figcaption>
+          </figure>
           <div class="grid-2">
             <div class="card"><span class="hud"><span data-lang="en">How the pods interlock</span><span data-lang="pt">Como os pods se conectam</span></span>
               <ul style="margin:10px 0 0">
