@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EyeFriend Case Study | Lucas Lorga</title>
+  <meta name="description" content="EyeFriend: a real-time multimodal AI shopping assistant for visually impaired people. Product case study by Lucas Lorga, one of three PMs.">
+  <meta name="theme-color" content="#060d18">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="EyeFriend Case Study | Lucas Lorga">
+  <meta property="og:description" content="Discovery, guardrails and metrics for a multimodal AI assistant for visually impaired shoppers.">
+  <meta property="og:image" content="assets/img/og-image.jpg">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">
+    <span data-lang="en">Skip to content</span><span data-lang="pt">Pular para o conteúdo</span>
+  </a>
+
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="index.html" aria-label="Lucas Lorga, home">
+        <span class="brand__mark" aria-hidden="true">LL</span>
+        <span>Lucas Lorga</span>
+      </a>
+      <nav aria-label="Main">
+        <a class="nav-hide-sm" href="index.html"><span data-lang="en">Home</span><span data-lang="pt">Início</span></a>
+        <a class="nav-hide-sm" href="eyefriend.html" aria-current="page"><span data-lang="en">Case study</span><span data-lang="pt">Estudo de caso</span></a>
+        <a href="index.html#contact"><span data-lang="en">Contact</span><span data-lang="pt">Contato</span></a>
+        <button class="lang-toggle" type="button"><b>EN</b> / PT</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= CASE HERO ================= -->
+  <section class="case-hero" aria-labelledby="case-title">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <canvas id="fx-canvas" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <span class="hud"><span data-lang="en">Case study · AI product</span><span data-lang="pt">Estudo de caso · Produto de IA</span></span>
+      <h1 id="case-title" style="margin-top:10px">EyeFriend</h1>
+      <p class="case-hero__lead">
+        <span data-lang="en">A real-time, voice-first multimodal AI that helps visually impaired shoppers identify products, read labels, recognize bills and verify receipts, and that says so when it is not sure.</span>
+        <span data-lang="pt">IA multimodal em tempo real, guiada por voz, que ajuda pessoas com deficiência visual a identificar produtos, ler rótulos, reconhecer cédulas e conferir recibos, e que avisa quando não tem certeza.</span>
+      </p>
+      <div class="case-meta">
+        <span class="chip"><span data-lang="en">Role: one of 3 PMs</span><span data-lang="pt">Papel: um dos 3 PMs</span></span>
+        <span class="chip"><span data-lang="en">Team: 15, cross-functional</span><span data-lang="pt">Time: 15, multidisciplinar</span></span>
+        <span class="chip"><span data-lang="en">11-week MVP sprint · Aug 2026 Demo Day</span><span data-lang="pt">Sprint de MVP de 11 semanas · Demo Day ago/2026</span></span>
+        <span class="chip">PM Accelerator AI PM Bootcamp · Cohort 9</span>
+        <span class="chip" style="color:var(--amber);border-color:rgba(255,181,71,.45)">★ <span data-lang="en">#1 Best Project (peer-voted)</span><span data-lang="pt">1º Melhor Projeto (voto dos participantes)</span></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="case-layout">
+
+      <!-- ================= LEFT CHAPTER PANEL ================= -->
+      <aside class="toc" aria-label="Chapters">
+        <p class="toc__title hud"><span data-lang="en">Chapters</span><span data-lang="pt">Capítulos</span></p>
+        <nav aria-label="Case study chapters">
+          <ol>
+            <li><a href="#tldr"><span><span data-lang="en">TL;DR</span><span data-lang="pt">Resumo</span></span></a></li>
+            <li><a href="#role"><span><span data-lang="en">Context &amp; my role</span><span data-lang="pt">Contexto e meu papel</span></span></a></li>
+            <li><a href="#problem"><span><span data-lang="en">The problem</span><span data-lang="pt">O problema</span></span></a></li>
+            <li><a href="#research"><span><span data-lang="en">User research</span><span data-lang="pt">Pesquisa com usuários</span></span></a></li>
+            <li><a href="#personas"><span><span data-lang="en">Personas &amp; beachhead</span><span data-lang="pt">Personas e segmento de entrada</span></span></a></li>
+            <li><a href="#competition"><span><span data-lang="en">Competitive landscape</span><span data-lang="pt">Concorrência</span></span></a></li>
+            <li><a href="#solution"><span><span data-lang="en">Solution &amp; MVP scope</span><span data-lang="pt">Solução e escopo do MVP</span></span></a></li>
+            <li><a href="#guardrails"><span><span data-lang="en">AI design &amp; guardrails</span><span data-lang="pt">Design de IA e guardrails</span></span></a></li>
+            <li><a href="#architecture"><span><span data-lang="en">Architecture</span><span data-lang="pt">Arquitetura</span></span></a></li>
+            <li><a href="#metrics"><span><span data-lang="en">Metrics &amp; North Star</span><span data-lang="pt">Métricas e North Star</span></span></a></li>
+            <li><a href="#gtm"><span><span data-lang="en">Go-to-market</span><span data-lang="pt">Go-to-market</span></span></a></li>
+            <li><a href="#roadmap"><span><span data-lang="en">Roadmap</span><span data-lang="pt">Roadmap</span></span></a></li>
+            <li><a href="#team"><span><span data-lang="en">Team &amp; ways of working</span><span data-lang="pt">Time e forma de trabalho</span></span></a></li>
+            <li><a href="#outcomes"><span><span data-lang="en">Outcomes &amp; learnings</span><span data-lang="pt">Resultados e aprendizados</span></span></a></li>
+            <li><a href="#sources"><span><span data-lang="en">Sources</span><span data-lang="pt">Fontes</span></span></a></li>
+          </ol>
+        </nav>
+        <div class="toc__progress" aria-hidden="true"><span></span></div>
+      </aside>
+
+      <main id="main">
+        <!-- Mobile chapter selector -->
+        <div class="toc-mobile">
+          <details>
+            <summary><span data-current><span data-lang="en">Chapters</span><span data-lang="pt">Capítulos</span></span></summary>
+            <nav aria-label="Case study chapters (mobile)">
+              <ol>
+                <li><a href="#tldr"><span><span data-lang="en">TL;DR</span><span data-lang="pt">Resumo</span></span></a></li>
+                <li><a href="#role"><span><span data-lang="en">Context &amp; my role</span><span data-lang="pt">Contexto e meu papel</span></span></a></li>
+                <li><a href="#problem"><span><span data-lang="en">The problem</span><span data-lang="pt">O problema</span></span></a></li>
+                <li><a href="#research"><span><span data-lang="en">User research</span><span data-lang="pt">Pesquisa com usuários</span></span></a></li>
+                <li><a href="#personas"><span><span data-lang="en">Personas &amp; beachhead</span><span data-lang="pt">Personas e segmento de entrada</span></span></a></li>
+                <li><a href="#competition"><span><span data-lang="en">Competitive landscape</span><span data-lang="pt">Concorrência</span></span></a></li>
+                <li><a href="#solution"><span><span data-lang="en">Solution &amp; MVP scope</span><span data-lang="pt">Solução e escopo do MVP</span></span></a></li>
+                <li><a href="#guardrails"><span><span data-lang="en">AI design &amp; guardrails</span><span data-lang="pt">Design de IA e guardrails</span></span></a></li>
+                <li><a href="#architecture"><span><span data-lang="en">Architecture</span><span data-lang="pt">Arquitetura</span></span></a></li>
+                <li><a href="#metrics"><span><span data-lang="en">Metrics &amp; North Star</span><span data-lang="pt">Métricas e North Star</span></span></a></li>
+                <li><a href="#gtm"><span><span data-lang="en">Go-to-market</span><span data-lang="pt">Go-to-market</span></span></a></li>
+                <li><a href="#roadmap"><span><span data-lang="en">Roadmap</span><span data-lang="pt">Roadmap</span></span></a></li>
+                <li><a href="#team"><span><span data-lang="en">Team &amp; ways of working</span><span data-lang="pt">Time e forma de trabalho</span></span></a></li>
+                <li><a href="#outcomes"><span><span data-lang="en">Outcomes &amp; learnings</span><span data-lang="pt">Resultados e aprendizados</span></span></a></li>
+                <li><a href="#sources"><span><span data-lang="en">Sources</span><span data-lang="pt">Fontes</span></span></a></li>
+              </ol>
+            </nav>
+          </details>
+        </div>
+
+        <!-- 01 TL;DR -->
+        <section class="chapter" id="tldr" aria-labelledby="h-tldr">
+          <span class="chapter__num hud">01</span>
+          <h2 id="h-tldr"><span data-lang="en">TL;DR</span><span data-lang="pt">Resumo</span></h2>
+          <div class="tldr">
+            <div class="card"><span class="hud hud--amber"><span data-lang="en">Problem</span><span data-lang="pt">Problema</span></span>
+              <p><span data-lang="en">Grocery shopping and paying force visually impaired people to depend on a companion or staff to read labels, prices, dates and bills.</span><span data-lang="pt">Fazer compras e pagar obriga pessoas com deficiência visual a depender de um acompanhante ou funcionário para ler rótulos, preços, validades e cédulas.</span></p></div>
+            <div class="card"><span class="hud hud--amber"><span data-lang="en">My role</span><span data-lang="pt">Meu papel</span></span>
+              <p><span data-lang="en">One of 3 PMs. I co-led research with 33 shoppers, defined personas and beachhead, benchmarked competitors, set the North Star and driver tree, and prioritized the “refuse, don’t guess” guardrail.</span><span data-lang="pt">Um dos 3 PMs. Co-liderei a pesquisa com 33 compradores, defini personas e segmento de entrada, fiz o benchmark de concorrentes, a North Star e a árvore de métricas, e priorizei o guardrail “recusar, não adivinhar”.</span></p></div>
+            <div class="card"><span class="hud hud--amber"><span data-lang="en">Solution</span><span data-lang="pt">Solução</span></span>
+              <p><span data-lang="en">A web-first voice loop with four in-store jobs: scene description, label reading (OCR), bill and receipt checks, and product comparison.</span><span data-lang="pt">Um loop de voz na web com quatro tarefas na loja: descrição do ambiente, leitura de rótulos (OCR), conferência de cédulas e recibos, e comparação de produtos.</span></p></div>
+            <div class="card"><span class="hud hud--amber"><span data-lang="en">Outcome</span><span data-lang="pt">Resultado</span></span>
+              <p><span data-lang="en">MVP shipped live at Demo Day (eyefriend.io) and voted #1 Best Project of the cohort by fellow participants.</span><span data-lang="pt">MVP lançado ao vivo no Demo Day (eyefriend.io) e eleito o 1º Melhor Projeto da turma pelos participantes.</span></p></div>
+          </div>
+        </section>
+
+        <!-- 02 ROLE -->
+        <section class="chapter" id="role" aria-labelledby="h-role">
+          <span class="chapter__num hud">02</span>
+          <h2 id="h-role"><span data-lang="en">Context &amp; my role</span><span data-lang="pt">Contexto e meu papel</span></h2>
+          <p><span data-lang="en">EyeFriend was built by Team #4 of the PM Accelerator AI PM Bootcamp (Cohort 9) in an 11-week MVP sprint: 15 people across product, design, frontend, backend and data science. Three of us were PMs. Below is what I owned versus what the team built together, so the credit is clear.</span><span data-lang="pt">O EyeFriend foi construído pelo Time #4 do PM Accelerator AI PM Bootcamp (Cohort 9) em um sprint de MVP de 11 semanas: 15 pessoas entre produto, design, frontend, backend e ciência de dados. Éramos três PMs. Abaixo separo o que foi meu do que o time construiu junto, para deixar o crédito claro.</span></p>
+          <div class="attrib">
+            <div class="card mine">
+              <span class="hud hud--amber"><span data-lang="en">What I owned or co-owned</span><span data-lang="pt">O que foi meu ou dividido comigo</span></span>
+              <ul>
+                <li><span data-lang="en">Co-led user research with <strong>33 visually impaired shoppers</strong> and mapped insights in an Opportunity Solution Tree</span><span data-lang="pt">Co-liderei a pesquisa com <strong>33 compradores com deficiência visual</strong> e organizei os achados em uma Opportunity Solution Tree</span></li>
+                <li><span data-lang="en">Defined <strong>5 personas</strong> and prioritized <strong>2 beachhead segments</strong></span><span data-lang="pt">Defini <strong>5 personas</strong> e priorizei <strong>2 segmentos de entrada</strong></span></li>
+                <li><span data-lang="en">Benchmarked <strong>5 assistive-tech competitors</strong></span><span data-lang="pt">Fiz o benchmark de <strong>5 concorrentes</strong> de tecnologia assistiva</span></li>
+                <li><span data-lang="en">Defined the <strong>North Star metric</strong> and the metrics driver tree with AI quality targets</span><span data-lang="pt">Defini a <strong>North Star Metric</strong> e a árvore de métricas com metas de qualidade da IA</span></li>
+                <li><span data-lang="en">Prioritized the <strong>refuse-rather-than-guess</strong> guardrail for money-related answers</span><span data-lang="pt">Priorizei o guardrail de <strong>recusar em vez de adivinhar</strong> em respostas sobre dinheiro</span></li>
+              </ul>
+            </div>
+            <div class="card">
+              <span class="hud"><span data-lang="en">Built by the team</span><span data-lang="pt">Construído pelo time</span></span>
+              <ul>
+                <li><span data-lang="en">Architecture, models and integrations (data science, backend)</span><span data-lang="pt">Arquitetura, modelos e integrações (ciência de dados, backend)</span></li>
+                <li><span data-lang="en">Web app, voice UI and accessible design system (frontend, design)</span><span data-lang="pt">Web app, interface de voz e design system acessível (frontend, design)</span></li>
+                <li><span data-lang="en">Shared across the 3 PMs: scope freeze, RACI approvals and the metrics loop</span><span data-lang="pt">Dividido entre os 3 PMs: congelamento de escopo, aprovações via RACI e ciclo de métricas</span></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 03 PROBLEM -->
+        <section class="chapter" id="problem" aria-labelledby="h-problem">
+          <span class="chapter__num hud">03</span>
+          <h2 id="h-problem"><span data-lang="en">The problem</span><span data-lang="pt">O problema</span></h2>
+          <p><span data-lang="en">The World Health Organization estimates that at least <strong>2.2 billion people</strong> have a vision impairment.<span class="cite"><a href="#src-1" aria-label="Source 1">[1]</a></span> For many of them, an ordinary grocery run turns into a dependency: someone else has to read the label, confirm the price, check the expiry date or count the change.</span><span data-lang="pt">A Organização Mundial da Saúde estima que pelo menos <strong>2,2 bilhões de pessoas</strong> têm algum tipo de deficiência visual.<span class="cite"><a href="#src-1" aria-label="Fonte 1">[1]</a></span> Para muitas delas, uma ida ao supermercado vira dependência: outra pessoa precisa ler o rótulo, confirmar o preço, checar a validade ou contar o troco.</span></p>
+          <p><span data-lang="en">We framed it as a <strong>job to be done</strong>: the progress a person is trying to make in a specific circumstance, not a feature request.<span class="cite"><a href="#src-2" aria-label="Source 2">[2]</a></span> The job: <em>“buy what I need and pay correctly, on my own.”</em></span><span data-lang="pt">Enquadramos como um <strong>job to be done</strong>: o progresso que a pessoa tenta fazer em uma circunstância específica, e não um pedido de funcionalidade.<span class="cite"><a href="#src-2" aria-label="Fonte 2">[2]</a></span> O job: <em>“comprar o que preciso e pagar certo, sozinho.”</em></span></p>
+          <div class="grid-2" style="margin-top:18px">
+            <div class="card"><h3 style="margin:0"><span data-lang="en">Can’t read small labels</span><span data-lang="pt">Não consegue ler rótulos pequenos</span></h3><p style="margin:6px 0 0"><span data-lang="en">Ingredients, allergens and instructions are invisible.</span><span data-lang="pt">Ingredientes, alergênicos e instruções ficam invisíveis.</span></p></div>
+            <div class="card"><h3 style="margin:0"><span data-lang="en">Prices and expiry are hidden</span><span data-lang="pt">Preço e validade escondidos</span></h3><p style="margin:6px 0 0"><span data-lang="en">No reliable way to confirm a price tag or a use-by date.</span><span data-lang="pt">Não há forma confiável de confirmar etiqueta de preço ou data de validade.</span></p></div>
+            <div class="card"><h3 style="margin:0"><span data-lang="en">Paying is stressful</span><span data-lang="pt">Pagar gera ansiedade</span></h3><p style="margin:6px 0 0"><span data-lang="en">Bills and receipts can’t be verified without a second person.</span><span data-lang="pt">Cédulas e recibos não podem ser conferidos sem uma segunda pessoa.</span></p></div>
+            <div class="card"><h3 style="margin:0"><span data-lang="en">Today’s tools don’t fit the aisle</span><span data-lang="pt">As ferramentas atuais não servem no corredor</span></h3><p style="margin:6px 0 0"><span data-lang="en">Existing apps are general-purpose (snapshot Q&amp;A, human volunteers, costly wearables), not built for the grocery and checkout flow.</span><span data-lang="pt">Os apps existentes são genéricos (pergunta sobre foto, voluntários humanos, wearables caros), não feitos para o fluxo de compra e caixa.</span></p></div>
+          </div>
+        </section>
+
+        <!-- 04 RESEARCH -->
+        <section class="chapter" id="research" aria-labelledby="h-research">
+          <span class="chapter__num hud">04</span>
+          <h2 id="h-research"><span data-lang="en">User research</span><span data-lang="pt">Pesquisa com usuários</span></h2>
+          <p><span data-lang="en">We talked to <strong>33 visually impaired shoppers</strong> and organized what we heard in an <strong>Opportunity Solution Tree</strong>, which links a desired outcome to user opportunities, then to candidate solutions and the assumptions to test.<span class="cite"><a href="#src-3" aria-label="Source 3">[3]</a></span> On sample size: in a widely cited study on qualitative interviews, most themes appeared within the first 12 interviews of a fairly homogeneous group,<span class="cite"><a href="#src-4" aria-label="Source 4">[4]</a></span> so 33 gave us reasonable coverage for discovery. It is not a statistically representative survey.</span><span data-lang="pt">Conversamos com <strong>33 compradores com deficiência visual</strong> e organizamos o que ouvimos em uma <strong>Opportunity Solution Tree</strong>, que liga um resultado desejado às oportunidades do usuário, às soluções candidatas e às hipóteses a testar.<span class="cite"><a href="#src-3" aria-label="Fonte 3">[3]</a></span> Sobre o tamanho da amostra: em um estudo muito citado sobre entrevistas qualitativas, a maioria dos temas surgiu nas primeiras 12 entrevistas de um grupo relativamente homogêneo,<span class="cite"><a href="#src-4" aria-label="Fonte 4">[4]</a></span> então 33 deram boa cobertura para discovery. Não é uma pesquisa estatisticamente representativa.</span></p>
+
+          <h3><span data-lang="en">Primary friction in the store</span><span data-lang="pt">Principal atrito na loja</span> <span class="label-tag label-tag--measured">n = 32</span></h3>
+          <div class="bars" role="list">
+            <div class="bar__row" role="listitem">
+              <span class="bar__label"><span data-lang="en">Physical pick-up and scan of products</span><span data-lang="pt">Pegar e escanear o produto fisicamente</span></span>
+              <div class="bar__track"><div class="bar__fill" data-value="34"></div></div><span class="bar__val">34%</span>
+            </div>
+            <div class="bar__row" role="listitem">
+              <span class="bar__label"><span data-lang="en">Locating categories or misidentifying items</span><span data-lang="pt">Localizar categorias ou identificar itens errado</span></span>
+              <div class="bar__track"><div class="bar__fill" data-value="32"></div></div><span class="bar__val">32%</span>
+            </div>
+            <div class="bar__row" role="listitem">
+              <span class="bar__label"><span data-lang="en">Telling similar packages apart</span><span data-lang="pt">Diferenciar embalagens parecidas</span></span>
+              <div class="bar__track"><div class="bar__fill" data-value="12"></div></div><span class="bar__val">12%</span>
+            </div>
+          </div>
+          <p class="footnote"><span data-lang="en">32 of the 33 participants named a primary friction. Remaining answers were spread across other categories.</span><span data-lang="pt">32 dos 33 participantes apontaram um atrito principal. As demais respostas se dividiram em outras categorias.</span></p>
+
+          <h3><span data-lang="en">Three insights that shaped the product</span><span data-lang="pt">Três insights que moldaram o produto</span></h3>
+          <div class="grid-3">
+            <div class="card"><span class="hud">55%</span><p style="margin:8px 0 0"><span data-lang="en">shop multiple times a week, alone. High-frequency pain means a strong daily pull.</span><span data-lang="pt">compram várias vezes por semana, sozinhos. Dor frequente significa uso diário.</span></p></div>
+            <div class="card"><span class="hud"><span data-lang="en">Trust beats features</span><span data-lang="pt">Confiança vale mais que funcionalidades</span></span><p style="margin:8px 0 0"><span data-lang="en">People asked for a friendly voice, high contrast and offline bill reading: reliability over breadth.</span><span data-lang="pt">Pediram voz amigável, alto contraste e leitura de cédulas offline: confiabilidade acima de quantidade.</span></p></div>
+            <div class="card"><span class="hud"><span data-lang="en">Refuse, don’t guess</span><span data-lang="pt">Recusar, não adivinhar</span></span><p style="margin:8px 0 0"><span data-lang="en">A wrong currency or price answer costs money. Abstaining is a feature, not a gap.</span><span data-lang="pt">Errar a cédula ou o preço custa dinheiro. Abster-se é funcionalidade, não falha.</span></p></div>
+          </div>
+        </section>
+
+        <!-- 05 PERSONAS -->
+        <section class="chapter" id="personas" aria-labelledby="h-personas">
+          <span class="chapter__num hud">05</span>
+          <h2 id="h-personas"><span data-lang="en">Personas &amp; beachhead</span><span data-lang="pt">Personas e segmento de entrada</span></h2>
+          <p><span data-lang="en">We defined five personas and picked two as the <strong>beachhead</strong>. The idea, from Geoffrey Moore’s <em>Crossing the Chasm</em>, is to win a narrow segment with an urgent, specific need before expanding.<span class="cite"><a href="#src-5" aria-label="Source 5">[5]</a></span> We chose the moments with the highest anxiety and frequency, where trust is earned or lost: checkout and low-vision reading.</span><span data-lang="pt">Definimos cinco personas e escolhemos duas como <strong>beachhead</strong> (segmento de entrada). A ideia, do livro <em>Crossing the Chasm</em> de Geoffrey Moore, é conquistar um segmento estreito com uma necessidade urgente e específica antes de expandir.<span class="cite"><a href="#src-5" aria-label="Fonte 5">[5]</a></span> Escolhemos os momentos de maior ansiedade e frequência, onde a confiança se ganha ou se perde: o caixa e a leitura para baixa visão.</span></p>
+          <div class="personas">
+            <div class="card persona persona--wedge"><span class="badge"><span data-lang="en">Beachhead</span><span data-lang="pt">Entrada</span></span><h4><span data-lang="en">Checkout &amp; financial user, “Elena”</span><span data-lang="pt">Usuária de caixa e finanças, “Elena”</span></h4><p><span data-lang="en">Totally blind. Friction at the point of sale, verifying bills and receipts, anxiety after paying.</span><span data-lang="pt">Cega total. Atrito no caixa, conferência de cédulas e recibos, ansiedade depois de pagar.</span></p></div>
+            <div class="card persona persona--wedge"><span class="badge"><span data-lang="en">Beachhead</span><span data-lang="pt">Entrada</span></span><h4><span data-lang="en">Elderly low-vision shopper, “Martha”</span><span data-lang="pt">Idosa com baixa visão, “Martha”</span></h4><p><span data-lang="en">Age-related macular degeneration. Needs short, high-contrast, concise spoken feedback.</span><span data-lang="pt">Degeneração macular relacionada à idade. Precisa de respostas curtas, alto contraste e fala objetiva.</span></p></div>
+            <div class="card persona"><span class="hud hud--muted"><span data-lang="en">Secondary</span><span data-lang="pt">Secundária</span></span><h4><span data-lang="en">Independent shopper, “Arthur”</span><span data-lang="pt">Comprador independente, “Arthur”</span></h4><p><span data-lang="en">Severe vision impairment. Solo navigation, product ID, price and expiry.</span><span data-lang="pt">Deficiência visual severa. Navegação sozinho, identificação de produto, preço e validade.</span></p></div>
+            <div class="card persona"><span class="hud hud--muted"><span data-lang="en">Secondary</span><span data-lang="pt">Secundária</span></span><h4><span data-lang="en">Caregiver / family, “Marcus”</span><span data-lang="pt">Cuidador / família, “Marcus”</span></h4><p><span data-lang="en">Sets up lists, dietary restrictions and alerts remotely.</span><span data-lang="pt">Configura listas, restrições alimentares e alertas à distância.</span></p></div>
+            <div class="card persona"><span class="hud hud--muted"><span data-lang="en">Secondary</span><span data-lang="pt">Secundária</span></span><h4><span data-lang="en">Rehab specialist, “Dr. Aris”</span><span data-lang="pt">Especialista em reabilitação, “Dr. Aris”</span></h4><p><span data-lang="en">Evaluates assistive tools. Our B2B and clinical referral path.</span><span data-lang="pt">Avalia ferramentas assistivas. Nosso canal B2B e de indicação clínica.</span></p></div>
+          </div>
+        </section>
+
+        <!-- 06 COMPETITION -->
+        <section class="chapter" id="competition" aria-labelledby="h-competition">
+          <span class="chapter__num hud">06</span>
+          <h2 id="h-competition"><span data-lang="en">Competitive landscape</span><span data-lang="pt">Concorrência</span></h2>
+          <p><span data-lang="en">Strong, often free incumbents already own general visual assistance. None of the five we benchmarked is built around the in-store shopping and payment loop. That gap, not “better AI”, is the positioning.</span><span data-lang="pt">Concorrentes fortes, muitas vezes gratuitos, já dominam a assistência visual genérica. Nenhum dos cinco que analisamos é feito para o ciclo de compra e pagamento dentro da loja. Essa lacuna, e não “uma IA melhor”, é o posicionamento.</span></p>
+          <div class="table-wrap">
+            <table>
+              <caption><span data-lang="en">Team assessment, verified August 2026. Features change quickly; treat as a snapshot.</span><span data-lang="pt">Avaliação do time, verificada em agosto de 2026. Funcionalidades mudam rápido; trate como retrato do momento.</span></caption>
+              <thead>
+                <tr>
+                  <th scope="col"><span data-lang="en">Player</span><span data-lang="pt">Player</span></th>
+                  <th scope="col"><span data-lang="en">Model / form</span><span data-lang="pt">Modelo / formato</span></th>
+                  <th scope="col"><span data-lang="en">Grocery-built</span><span data-lang="pt">Feito p/ mercado</span></th>
+                  <th scope="col"><span data-lang="en">Real-time loop</span><span data-lang="pt">Tempo real</span></th>
+                  <th scope="col"><span data-lang="en">Currency + receipt</span><span data-lang="pt">Cédula + recibo</span></th>
+                  <th scope="col"><span data-lang="en">Shelf compare</span><span data-lang="pt">Comparar na gôndola</span></th>
+                  <th scope="col"><span data-lang="en">Cost</span><span data-lang="pt">Custo</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Be My Eyes / Be My AI</th><td><span data-lang="en">GPT-4o snapshot + human volunteers</span><span data-lang="pt">Foto + GPT-4o + voluntários</span></td><td class="no">No</td><td>Snapshot</td><td><span data-lang="en">Currency only</span><span data-lang="pt">Só cédula</span></td><td class="no">No</td><td><span data-lang="en">Free</span><span data-lang="pt">Grátis</span></td></tr>
+                <tr><th scope="row">Microsoft Seeing AI</th><td><span data-lang="en">On-device, iOS only</span><span data-lang="pt">No aparelho, só iOS</span></td><td class="no">No</td><td>Snapshot</td><td><span data-lang="en">Currency only</span><span data-lang="pt">Só cédula</span></td><td class="no">No</td><td><span data-lang="en">Free</span><span data-lang="pt">Grátis</span></td></tr>
+                <tr><th scope="row">Aira</th><td><span data-lang="en">Paid human agents + Access AI</span><span data-lang="pt">Agentes humanos pagos + Access AI</span></td><td class="no">No</td><td>Human-in-loop</td><td><span data-lang="en">Via agent</span><span data-lang="pt">Via agente</span></td><td class="no">No</td><td><span data-lang="en">Subscription</span><span data-lang="pt">Assinatura</span></td></tr>
+                <tr><th scope="row">Envision AI / Glasses</th><td><span data-lang="en">OCR app + smart glasses</span><span data-lang="pt">App de OCR + óculos</span></td><td class="no">No</td><td>Snapshot</td><td class="no">No</td><td><span data-lang="en">Barcode only</span><span data-lang="pt">Só código de barras</span></td><td>$$ – $$$$</td></tr>
+                <tr><th scope="row">OrCam MyEye</th><td><span data-lang="en">Wearable hardware</span><span data-lang="pt">Hardware vestível</span></td><td><span data-lang="en">Partial (barcodes)</span><span data-lang="pt">Parcial (código de barras)</span></td><td><span data-lang="en">Real-time</span><span data-lang="pt">Tempo real</span></td><td><span data-lang="en">Currency only</span><span data-lang="pt">Só cédula</span></td><td class="no">No</td><td>~US$4,000+</td></tr>
+                <tr class="is-us"><th scope="row">EyeFriend</th><td><span data-lang="en">Web-first multimodal loop</span><span data-lang="pt">Loop multimodal na web</span></td><td class="yes">Yes</td><td><span data-lang="en">Real-time (&lt;3s target)</span><span data-lang="pt">Tempo real (meta &lt;3s)</span></td><td class="yes"><span data-lang="en">Yes, both</span><span data-lang="pt">Sim, ambos</span></td><td class="yes">Yes</td><td><span data-lang="en">No hardware</span><span data-lang="pt">Sem hardware</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 07 SOLUTION -->
+        <section class="chapter" id="solution" aria-labelledby="h-solution">
+          <span class="chapter__num hud">07</span>
+          <h2 id="h-solution"><span data-lang="en">Solution &amp; MVP scope</span><span data-lang="pt">Solução e escopo do MVP</span></h2>
+          <p><span data-lang="en">One voice loop covering four in-store jobs. We scoped it as a <strong>Minimum Viable Product</strong> in the Lean Startup sense: the smallest thing that lets us learn from real users, not a reduced version of the final product.<span class="cite"><a href="#src-6" aria-label="Source 6">[6]</a></span> Web-first, so there is nothing to install.</span><span data-lang="pt">Um loop de voz cobrindo quatro tarefas na loja. Definimos o escopo como <strong>MVP</strong> no sentido do Lean Startup: o mínimo que permite aprender com usuários reais, e não uma versão reduzida do produto final.<span class="cite"><a href="#src-6" aria-label="Fonte 6">[6]</a></span> Na web, então não há nada para instalar.</span></p>
+          <div class="features">
+            <div class="card"><span class="hud">01</span><h3><span data-lang="en">Real-time scene description</span><span data-lang="pt">Descrição do ambiente em tempo real</span></h3><p style="margin:0"><span data-lang="en">Describes surroundings and obstacles as the user moves.</span><span data-lang="pt">Descreve o entorno e obstáculos enquanto a pessoa anda.</span></p><div class="quote-ui"><span data-lang="en">“Produce section is ~10 steps ahead; a promo stand is slightly left.”</span><span data-lang="pt">“O hortifrúti está ~10 passos à frente; tem um stand de promoção levemente à esquerda.”</span></div></div>
+            <div class="card"><span class="hud">02</span><h3><span data-lang="en">Label reading (OCR)</span><span data-lang="pt">Leitura de rótulos (OCR)</span></h3><p style="margin:0"><span data-lang="en">Reads labels, prices, aisle boards and dates aloud.</span><span data-lang="pt">Lê em voz alta rótulos, preços, placas e datas.</span></p><div class="quote-ui"><span data-lang="en">“This rice bag expires 04-03-2027.”</span><span data-lang="pt">“Este pacote de arroz vence em 04-03-2027.”</span></div></div>
+            <div class="card"><span class="hud">03</span><h3><span data-lang="en">Bills &amp; receipts</span><span data-lang="pt">Cédulas e recibos</span></h3><p style="margin:0"><span data-lang="en">Identifies the denomination first, then checks charged vs. paid.</span><span data-lang="pt">Identifica o valor da cédula primeiro e depois confere cobrado vs. pago.</span></p><div class="quote-ui"><span data-lang="en">“This is a $20 bill.”</span><span data-lang="pt">“Esta é uma nota de 20 dólares.”</span></div></div>
+            <div class="card"><span class="hud">04</span><h3><span data-lang="en">Product &amp; price comparison</span><span data-lang="pt">Comparação de produtos e preços</span></h3><p style="margin:0"><span data-lang="en">Compares items on the criteria the user asks for.</span><span data-lang="pt">Compara itens pelo critério que a pessoa pedir.</span></p><div class="quote-ui"><span data-lang="en">“Heinz has 4 g sugar vs 6 g. Heinz is lower.”</span><span data-lang="pt">“Heinz tem 4 g de açúcar contra 6 g. Heinz tem menos.”</span></div></div>
+          </div>
+          <div class="callout callout--cyan"><p><span data-lang="en"><strong>Accessibility by design:</strong> voice-first, single-tap listening, 6× tap targets and a high-contrast UI. WCAG 2.2, the W3C accessibility standard, is the reference for these choices.<span class="cite"><a href="#src-21" aria-label="Source 21">[21]</a></span></span><span data-lang="pt"><strong>Acessibilidade desde o início:</strong> voz em primeiro lugar, um toque para ouvir, áreas de toque 6× maiores e interface de alto contraste. A WCAG 2.2, padrão de acessibilidade do W3C, é a referência para essas escolhas.<span class="cite"><a href="#src-21" aria-label="Fonte 21">[21]</a></span></span></p></div>
+        </section>
+
+        <!-- 08 GUARDRAILS -->
+        <section class="chapter" id="guardrails" aria-labelledby="h-guardrails">
+          <span class="chapter__num hud">08</span>
+          <h2 id="h-guardrails"><span data-lang="en">AI design &amp; guardrails</span><span data-lang="pt">Design de IA e guardrails</span></h2>
+          <p><span data-lang="en">The key product decision: <strong>when a price, date or bill is unclear, EyeFriend flags the uncertainty and asks the user to re-frame. It does not guess.</strong> Research supports this choice from several angles:</span><span data-lang="pt">A decisão de produto central: <strong>quando preço, data ou cédula não estão claros, o EyeFriend sinaliza a incerteza e pede para reenquadrar a câmera. Ele não chuta.</strong> A pesquisa sustenta essa escolha por vários ângulos:</span></p>
+          <ul>
+            <li><span data-lang="en"><strong>Real-world photos from blind users are hard.</strong> In VizWiz, a dataset of 31,000+ visual questions from blind people, many images are low quality and many questions cannot be answered from the photo.<span class="cite"><a href="#src-7" aria-label="Source 7">[7]</a></span></span><span data-lang="pt"><strong>Fotos reais tiradas por pessoas cegas são difíceis.</strong> No VizWiz, base com mais de 31 mil perguntas visuais feitas por pessoas cegas, muitas imagens têm baixa qualidade e muitas perguntas não podem ser respondidas pela foto.<span class="cite"><a href="#src-7" aria-label="Fonte 7">[7]</a></span></span></li>
+            <li><span data-lang="en"><strong>Trust in current tools is low.</strong> In a 2024 diary study with 16 blind and low-vision adults using an AI scene-description app, average trust was 2.43 out of 4 and satisfaction 2.76 out of 5.<span class="cite"><a href="#src-8" aria-label="Source 8">[8]</a></span></span><span data-lang="pt"><strong>A confiança nas ferramentas atuais é baixa.</strong> Em um estudo de diário de 2024 com 16 adultos cegos ou com baixa visão usando um app de descrição de cenas com IA, a confiança média foi 2,43 de 4 e a satisfação, 2,76 de 5.<span class="cite"><a href="#src-8" aria-label="Fonte 8">[8]</a></span></span></li>
+            <li><span data-lang="en"><strong>Models are pushed to guess.</strong> OpenAI researchers argue that language models hallucinate partly because training and benchmarks reward confident guesses over admitting uncertainty.<span class="cite"><a href="#src-9" aria-label="Source 9">[9]</a></span></span><span data-lang="pt"><strong>Os modelos são incentivados a chutar.</strong> Pesquisadores da OpenAI argumentam que modelos de linguagem alucinam em parte porque o treino e os benchmarks premiam o chute confiante em vez de admitir incerteza.<span class="cite"><a href="#src-9" aria-label="Fonte 9">[9]</a></span></span></li>
+            <li><span data-lang="en"><strong>Abstaining is a known technique.</strong> “Selective classification” lets a model reject low-confidence inputs to keep its error rate under a chosen level.<span class="cite"><a href="#src-10" aria-label="Source 10">[10]</a></span></span><span data-lang="pt"><strong>Abster-se é uma técnica conhecida.</strong> A “classificação seletiva” permite que o modelo rejeite entradas de baixa confiança para manter a taxa de erro abaixo de um nível escolhido.<span class="cite"><a href="#src-10" aria-label="Fonte 10">[10]</a></span></span></li>
+            <li><span data-lang="en"><strong>Design guidelines agree.</strong> Microsoft’s human-AI guidelines ask products to make clear how well the system can perform and to support easy correction;<span class="cite"><a href="#src-11" aria-label="Source 11">[11]</a></span> Google’s People + AI Guidebook treats errors and graceful failure as a core design topic.<span class="cite"><a href="#src-12" aria-label="Source 12">[12]</a></span> The underlying aim is <em>calibrated</em> trust, which human-factors research first studied in aviation automation.<span class="cite"><a href="#src-13" aria-label="Source 13">[13]</a></span></span><span data-lang="pt"><strong>As diretrizes de design concordam.</strong> As diretrizes humano-IA da Microsoft pedem que o produto deixe claro o quão bem funciona e facilite a correção;<span class="cite"><a href="#src-11" aria-label="Fonte 11">[11]</a></span> o People + AI Guidebook do Google trata erros e falha elegante como tema central.<span class="cite"><a href="#src-12" aria-label="Fonte 12">[12]</a></span> O objetivo de fundo é a confiança <em>calibrada</em>, estudada primeiro na automação da aviação.<span class="cite"><a href="#src-13" aria-label="Fonte 13">[13]</a></span></span></li>
+          </ul>
+
+          <h3><span data-lang="en">How it works at checkout: Elena’s journey</span><span data-lang="pt">Como funciona no caixa: a jornada da Elena</span></h3>
+          <div class="flow">
+            <div class="card"><span class="hud">1 · <span data-lang="en">Capture bill</span><span data-lang="pt">Capturar cédula</span></span><p><span data-lang="en">Elena asks by voice to scan a $20 bill.</span><span data-lang="pt">Elena pede por voz para ler uma nota de 20 dólares.</span></p></div>
+            <div class="card"><span class="hud">2 · <span data-lang="en">Read receipt</span><span data-lang="pt">Ler recibo</span></span><p><span data-lang="en">OCR extracts the total from the paper receipt.</span><span data-lang="pt">O OCR extrai o total do recibo de papel.</span></p></div>
+            <div class="card"><span class="hud">3 · <span data-lang="en">Cross-check</span><span data-lang="pt">Conferir</span></span><p><span data-lang="en">The system compares cash handed over with the total.</span><span data-lang="pt">O sistema compara o dinheiro entregue com o total.</span></p></div>
+            <div class="card"><span class="hud">4 · <span data-lang="en">Speak</span><span data-lang="pt">Falar</span></span><p><span data-lang="en">Change due is read aloud, with a target of under 3 seconds.</span><span data-lang="pt">O troco é dito em voz alta, com meta de menos de 3 segundos.</span></p></div>
+          </div>
+          <div class="flow__fail" role="list" aria-label="Failure handling">
+            <span class="pill pill--ok" role="listitem">✔ <span data-lang="en">Clear receipt</span><span data-lang="pt">Recibo legível</span></span>
+            <span class="pill pill--bad" role="listitem">✖ <span data-lang="en">Crinkled paper / lag</span><span data-lang="pt">Papel amassado / atraso</span></span>
+            <span class="pill pill--bad" role="listitem">✖ <span data-lang="en">Low confidence</span><span data-lang="pt">Baixa confiança</span></span>
+            <span class="pill pill--warn" role="listitem">⚠ <span data-lang="en">“Visual unclear, re-align”: try-again loop instead of a guess</span><span data-lang="pt">“Imagem pouco clara, reenquadre”: nova tentativa em vez de chute</span></span>
+          </div>
+
+          <h3><span data-lang="en">Money math stays out of the LLM</span><span data-lang="pt">A conta de dinheiro fica fora do LLM</span></h3>
+          <p><span data-lang="en">The team put a <strong>deterministic price engine</strong> (unit-price math, no LLM) next to Gemini, behind one shared JSON contract. This follows a well-established pattern: letting language models call tools such as a calculator improves results on arithmetic,<span class="cite"><a href="#src-14" aria-label="Source 14">[14]</a></span> and benchmarks show multimodal models still make OCR mistakes on harder text.<span class="cite"><a href="#src-15" aria-label="Source 15">[15]</a></span> The bill-recognition model scored about 94% accuracy in the team’s tests, which is exactly why the abstain-and-retry path matters.</span><span data-lang="pt">O time colocou um <strong>motor de preços determinístico</strong> (cálculo de preço unitário, sem LLM) ao lado do Gemini, atrás de um contrato JSON único. Isso segue um padrão consolidado: deixar modelos de linguagem usarem ferramentas como calculadora melhora o resultado em aritmética,<span class="cite"><a href="#src-14" aria-label="Fonte 14">[14]</a></span> e benchmarks mostram que modelos multimodais ainda erram OCR em textos mais difíceis.<span class="cite"><a href="#src-15" aria-label="Fonte 15">[15]</a></span> O modelo de reconhecimento de cédulas teve cerca de 94% de acurácia nos testes do time, e é justamente por isso que o caminho de abster-se e tentar de novo importa.</span> <span class="label-tag label-tag--measured"><span data-lang="en">team-reported</span><span data-lang="pt">medido pelo time</span></span></p>
+        </section>
+
+        <!-- 09 ARCHITECTURE -->
+        <section class="chapter" id="architecture" aria-labelledby="h-architecture">
+          <span class="chapter__num hud">09</span>
+          <h2 id="h-architecture"><span data-lang="en">Architecture</span><span data-lang="pt">Arquitetura</span></h2>
+          <p><span data-lang="en">A pragmatic, multi-cloud pipeline built around a sub-3-second voice loop. Usability research puts 1 second as the limit for keeping a user’s flow of thought and 10 seconds as the limit for holding attention;<span class="cite"><a href="#src-16" aria-label="Source 16">[16]</a></span> for someone standing in an aisle without visual feedback, we aimed well inside that window. The engineering was built by the team; my part was setting the latency and accuracy targets as product requirements.</span><span data-lang="pt">Um pipeline pragmático e multi-cloud em torno de um loop de voz abaixo de 3 segundos. Pesquisas de usabilidade colocam 1 segundo como limite para manter o fluxo de pensamento do usuário e 10 segundos como limite para manter a atenção;<span class="cite"><a href="#src-16" aria-label="Fonte 16">[16]</a></span> para alguém parado no corredor sem retorno visual, miramos bem dentro dessa janela. A engenharia foi do time; minha parte foi definir as metas de latência e acurácia como requisitos de produto.</span></p>
+          <div class="arch">
+            <div class="card card--hud"><span class="hud"><span data-lang="en">Browser</span><span data-lang="pt">Navegador</span></span><ul><li>React · Vercel · NextAuth</li><li>Zustand</li><li>Web Speech API (STT)</li><li>WebSocket streams</li></ul></div>
+            <div class="card card--hud"><span class="hud">Ingest + Gemini</span><ul><li>Python · OpenCV · FFmpeg</li><li><span data-lang="en">Gemini API, multimodal</span><span data-lang="pt">Gemini API, multimodal</span></li><li><span data-lang="en">Intent router (rules → AI)</span><span data-lang="pt">Roteador de intenção (regras → IA)</span></li><li>Gemini TTS</li></ul></div>
+            <div class="card card--hud"><span class="hud">Azure</span><ul><li>Custom Vision</li><li><span data-lang="en">Bill / currency routing</span><span data-lang="pt">Roteamento de cédulas</span></li><li><span data-lang="en">Denomination checks</span><span data-lang="pt">Checagem de valor</span></li><li><span data-lang="en">Failover</span><span data-lang="pt">Failover</span></li></ul></div>
+            <div class="card card--hud"><span class="hud"><span data-lang="en">Data layer</span><span data-lang="pt">Dados</span></span><ul><li>FastAPI · Celery · Redis</li><li>Supabase / Postgres</li><li><span data-lang="en">Unified JSON contract</span><span data-lang="pt">Contrato JSON único</span></li><li><span data-lang="en">Observability: Langtrace</span><span data-lang="pt">Observabilidade: Langtrace</span></li></ul></div>
+          </div>
+          <p class="concept"><b><span data-lang="en">Why rules before AI in the router:</span><span data-lang="pt">Por que regras antes da IA no roteador:</span></b> <span data-lang="en">simple, predictable intents are handled without a model call, which saves latency and cost and makes behavior easier to test.</span><span data-lang="pt">intenções simples e previsíveis são resolvidas sem chamar o modelo, o que economiza latência e custo e deixa o comportamento mais fácil de testar.</span></p>
+        </section>
+
+        <!-- 10 METRICS -->
+        <section class="chapter" id="metrics" aria-labelledby="h-metrics">
+          <span class="chapter__num hud">10</span>
+          <h2 id="h-metrics"><span data-lang="en">Metrics &amp; North Star</span><span data-lang="pt">Métricas e North Star</span></h2>
+          <p><span data-lang="en">I defined a <strong>North Star Metric</strong>: one measure of the core value users get, supported by input metrics the team can move.<span class="cite"><a href="#src-17" aria-label="Source 17">[17]</a></span> The lagging metrics map onto Google’s HEART framework (task success, retention, happiness).<span class="cite"><a href="#src-18" aria-label="Source 18">[18]</a></span></span><span data-lang="pt">Defini uma <strong>North Star Metric</strong>: uma medida do valor central entregue ao usuário, sustentada por métricas de entrada que o time consegue mover.<span class="cite"><a href="#src-17" aria-label="Fonte 17">[17]</a></span> As métricas de resultado se encaixam no framework HEART do Google (sucesso na tarefa, retenção, satisfação).<span class="cite"><a href="#src-18" aria-label="Fonte 18">[18]</a></span></span></p>
+          <div class="card ns">
+            <span class="hud">North Star</span>
+            <div class="title"><span data-lang="en">Successful Assists per Session</span><span data-lang="pt">Assistências bem-sucedidas por sessão</span></div>
+            <p><span data-lang="en">Completed intents with no same-feature retry within 10 seconds, divided by sessions with at least one capture.</span><span data-lang="pt">Intenções concluídas sem nova tentativa da mesma função em até 10 segundos, divididas pelas sessões com pelo menos uma captura.</span></p>
+          </div>
+          <div class="callout"><p><span data-lang="en"><strong>Honest note:</strong> the numbers below are <strong>targets</strong>, not results. Our rule was “no targets before a baseline”: two weeks of measurement first, then commit.</span><span data-lang="pt"><strong>Nota honesta:</strong> os números abaixo são <strong>metas</strong>, não resultados. Nossa regra era “nenhuma meta antes de uma linha de base”: duas semanas medindo primeiro, depois compromisso.</span></p></div>
+          <div class="kpis">
+            <div class="card">
+              <span class="hud"><span data-lang="en">Leading · engineering-controllable</span><span data-lang="pt">Antecedentes · controláveis pela engenharia</span></span>
+              <ul class="kpi-list">
+                <li><span><span data-lang="en">Loop latency</span><span data-lang="pt">Latência do loop</span></span><span>&lt; 3 s <span class="label-tag label-tag--target"><span data-lang="en">target</span><span data-lang="pt">meta</span></span></span></li>
+                <li><span><span data-lang="en">OCR reading accuracy</span><span data-lang="pt">Acurácia de leitura (OCR)</span></span><span>≥ 98% <span class="label-tag label-tag--target"><span data-lang="en">target</span><span data-lang="pt">meta</span></span></span></li>
+                <li><span><span data-lang="en">Refusal / abstention accuracy</span><span data-lang="pt">Acurácia de recusa / abstenção</span></span><span>100% <span class="label-tag label-tag--target"><span data-lang="en">target</span><span data-lang="pt">meta</span></span></span></li>
+                <li><span><span data-lang="en">Intent routing accuracy</span><span data-lang="pt">Acurácia do roteamento</span></span><span><span data-lang="en">tracked</span><span data-lang="pt">monitorada</span></span></li>
+                <li><span><span data-lang="en">Frame drop rate</span><span data-lang="pt">Perda de frames</span></span><span><span data-lang="en">tracked</span><span data-lang="pt">monitorada</span></span></li>
+              </ul>
+            </div>
+            <div class="card">
+              <span class="hud"><span data-lang="en">Lagging · user outcomes</span><span data-lang="pt">Resultado · desfecho do usuário</span></span>
+              <ul class="kpi-list">
+                <li><span><span data-lang="en">Purchase completion</span><span data-lang="pt">Compra concluída</span></span><span>≥ 88% <span class="label-tag label-tag--target"><span data-lang="en">target</span><span data-lang="pt">meta</span></span></span></li>
+                <li><span><span data-lang="en">Task completion</span><span data-lang="pt">Tarefa concluída</span></span><span>≥ 90% <span class="label-tag label-tag--target"><span data-lang="en">target</span><span data-lang="pt">meta</span></span></span></li>
+                <li><span>Net Promoter Score</span><span>+65 <span class="label-tag label-tag--target"><span data-lang="en">target</span><span data-lang="pt">meta</span></span></span></li>
+                <li><span><span data-lang="en">Task independence</span><span data-lang="pt">Independência na tarefa</span></span><span><span data-lang="en">survey</span><span data-lang="pt">questionário</span></span></li>
+                <li><span><span data-lang="en">Week-4 assist retention</span><span data-lang="pt">Retenção na semana 4</span></span><span><span data-lang="en">cohorted</span><span data-lang="pt">por coorte</span></span></li>
+              </ul>
+            </div>
+          </div>
+          <h3><span data-lang="en">Measurement discipline</span><span data-lang="pt">Disciplina de medição</span></h3>
+          <p><span data-lang="en">We borrowed from Lean Six Sigma’s <strong>DMAIC</strong> cycle (Define, Measure, Analyze, Improve, Control):<span class="cite"><a href="#src-19" aria-label="Source 19">[19]</a></span> a definition sheet and versioned event schema, checks that the measurement itself is reliable (repeatability, clock skew, agreement between labellers), a two-week baseline before any target, and reconciliation checks on the funnel.</span><span data-lang="pt">Usamos o ciclo <strong>DMAIC</strong> do Lean Six Sigma (Definir, Medir, Analisar, Melhorar, Controlar):<span class="cite"><a href="#src-19" aria-label="Fonte 19">[19]</a></span> ficha de definição e esquema de eventos versionado, checagem de que a própria medição é confiável (repetibilidade, defasagem de relógio, concordância entre anotadores), linha de base de duas semanas antes de qualquer meta e conferências de consistência do funil.</span></p>
+          <div class="callout callout--cyan"><p><span data-lang="en"><strong>Falsifiable hypothesis:</strong> raising the grounded-answer rate increases assists per session, which increases week-4 retention.</span><span data-lang="pt"><strong>Hipótese falseável:</strong> aumentar a taxa de respostas fundamentadas aumenta as assistências por sessão, o que aumenta a retenção na semana 4.</span></p></div>
+        </section>
+
+        <!-- 11 GTM -->
+        <section class="chapter" id="gtm" aria-labelledby="h-gtm">
+          <span class="chapter__num hud">11</span>
+          <h2 id="h-gtm"><span data-lang="en">Go-to-market</span><span data-lang="pt">Go-to-market</span></h2>
+          <p><span data-lang="en">Land through trust networks, with no app-store hurdle.</span><span data-lang="pt">Entrar pelas redes de confiança, sem a barreira da loja de apps.</span></p>
+          <div class="grid-2">
+            <div class="card"><span class="hud"><span data-lang="en">Ideal customer profile</span><span data-lang="pt">Perfil de cliente ideal</span></span><p style="margin:8px 0 0"><span data-lang="en"><strong>B2C:</strong> checkout and elderly low-vision shoppers who shop alone, several times a week. <strong>B2B2C:</strong> rehab therapists, low-vision clinics and retailers who recommend and refer.</span><span data-lang="pt"><strong>B2C:</strong> compradores no caixa e idosos com baixa visão que compram sozinhos, várias vezes por semana. <strong>B2B2C:</strong> terapeutas de reabilitação, clínicas de baixa visão e varejistas que recomendam e indicam.</span></p></div>
+            <div class="card"><span class="hud"><span data-lang="en">Messaging hierarchy</span><span data-lang="pt">Hierarquia de mensagem</span></span><ol style="margin:8px 0 0"><li><span data-lang="en"><strong>Independence:</strong> shop and pay without a second person</span><span data-lang="pt"><strong>Independência:</strong> comprar e pagar sem uma segunda pessoa</span></li><li><span data-lang="en"><strong>Trust:</strong> it tells you when it isn’t sure</span><span data-lang="pt"><strong>Confiança:</strong> ele avisa quando não tem certeza</span></li><li><span data-lang="en"><strong>No friction:</strong> web, voice, no hardware, no install</span><span data-lang="pt"><strong>Sem atrito:</strong> web, voz, sem hardware, sem instalar</span></li></ol></div>
+            <div class="card"><span class="hud"><span data-lang="en">Channels</span><span data-lang="pt">Canais</span></span><p style="margin:8px 0 0"><span data-lang="en">Referrals from therapists, clinics and retail partners seed high-trust first users; LinkedIn voice-of-customer posts build awareness in the accessibility community.</span><span data-lang="pt">Indicações de terapeutas, clínicas e varejistas trazem os primeiros usuários com alta confiança; posts no LinkedIn com a voz do cliente geram reconhecimento na comunidade de acessibilidade.</span></p></div>
+            <div class="card"><span class="hud"><span data-lang="en">Pricing model</span><span data-lang="pt">Modelo de preço</span></span><p style="margin:8px 0 0"><span data-lang="en">Freemium core for shoppers; B2B licensing or sponsorship for clinics and retailers. Business guardrail: partner-channel LTV:CAC ≥ 3×.</span><span data-lang="pt">Núcleo freemium para compradores; licenciamento B2B ou patrocínio para clínicas e varejistas. Guardrail de negócio: LTV:CAC do canal de parceiros ≥ 3×.</span> <span class="label-tag label-tag--target"><span data-lang="en">target</span><span data-lang="pt">meta</span></span></p></div>
+          </div>
+        </section>
+
+        <!-- 12 ROADMAP -->
+        <section class="chapter" id="roadmap" aria-labelledby="h-roadmap">
+          <span class="chapter__num hud">12</span>
+          <h2 id="h-roadmap"><span data-lang="en">Roadmap</span><span data-lang="pt">Roadmap</span></h2>
+          <p><span data-lang="en">We used a <strong>Now / Next / Later</strong> roadmap, which groups work by time horizon instead of fixed dates, because uncertainty grows the further out you plan.<span class="cite"><a href="#src-20" aria-label="Source 20">[20]</a></span></span><span data-lang="pt">Usamos um roadmap <strong>Now / Next / Later</strong>, que agrupa o trabalho por horizonte de tempo em vez de datas fixas, porque a incerteza cresce quanto mais longe se planeja.<span class="cite"><a href="#src-20" aria-label="Fonte 20">[20]</a></span></span></p>
+          <div class="roadmap">
+            <div class="card card--hud"><span class="hud hud--amber">Now · <span data-lang="en">weeks 1–5</span><span data-lang="pt">semanas 1–5</span></span><ul><li><span data-lang="en">3-feature demo live: scene, product recognition + comparison, bill/receipt</span><span data-lang="pt">Demo com 3 funções no ar: cena, reconhecimento + comparação de produto, cédula/recibo</span></li><li><span data-lang="en">Web app at eyefriend.io with auth and demo credential</span><span data-lang="pt">Web app em eyefriend.io com login e credencial de demonstração</span></li><li><span data-lang="en">Metrics instrumentation and event schema</span><span data-lang="pt">Instrumentação de métricas e esquema de eventos</span></li></ul></div>
+            <div class="card card--hud"><span class="hud">Next · <span data-lang="en">weeks 6–11</span><span data-lang="pt">semanas 6–11</span></span><ul><li><span data-lang="en">Offline bill recognition, counterfeit and denomination checks</span><span data-lang="pt">Reconhecimento de cédulas offline, checagem de falsificação e valor</span></li><li><span data-lang="en">Post-payment receipt validation loop</span><span data-lang="pt">Validação do recibo após o pagamento</span></li><li><span data-lang="en">Usability trials with therapist partners; caregiver AI observability</span><span data-lang="pt">Testes de usabilidade com terapeutas parceiros; observabilidade da IA para cuidadores</span></li></ul></div>
+            <div class="card card--hud"><span class="hud">Later · <span data-lang="en">post-MVP</span><span data-lang="pt">pós-MVP</span></span><ul><li><span data-lang="en">Native mobile app, then smart-glasses integration</span><span data-lang="pt">App mobile nativo e depois integração com óculos inteligentes</span></li><li><span data-lang="en">GPS road-crossing and indoor/outdoor navigation</span><span data-lang="pt">Travessia de rua com GPS e navegação interna/externa</span></li><li><span data-lang="en">Multi-language; retail shelf-data integrations</span><span data-lang="pt">Vários idiomas; integração com dados de gôndola do varejo</span></li></ul></div>
+          </div>
+        </section>
+
+        <!-- 13 TEAM -->
+        <section class="chapter" id="team" aria-labelledby="h-team">
+          <span class="chapter__num hud">13</span>
+          <h2 id="h-team"><span data-lang="en">Team &amp; ways of working</span><span data-lang="pt">Time e forma de trabalho</span></h2>
+          <p><span data-lang="en">Fifteen people in cross-functional pods (product, design, frontend, backend, data science) working on a 2–3 day cadence. Tools: Trello, GitHub, Google Drive, Discord and Vercel.</span><span data-lang="pt">Quinze pessoas em pods multidisciplinares (produto, design, frontend, backend, ciência de dados) em ciclos de 2 a 3 dias. Ferramentas: Trello, GitHub, Google Drive, Discord e Vercel.</span></p>
+          <div class="grid-2">
+            <div class="card"><span class="hud"><span data-lang="en">How the pods interlock</span><span data-lang="pt">Como os pods se conectam</span></span>
+              <ul style="margin:10px 0 0">
+                <li><span data-lang="en"><strong>DS ⇄ FE ⇄ BE:</strong> one JSON contract as the schema gate</span><span data-lang="pt"><strong>DS ⇄ FE ⇄ BE:</strong> um contrato JSON como porta de esquema</span></li>
+                <li><span data-lang="en"><strong>Design ⇄ Frontend:</strong> reusable components and high-contrast tokens in lockstep</span><span data-lang="pt"><strong>Design ⇄ Frontend:</strong> componentes reutilizáveis e tokens de alto contraste sincronizados</span></li>
+                <li><span data-lang="en"><strong>Audio ⇄ Video:</strong> one integrated workflow</span><span data-lang="pt"><strong>Áudio ⇄ Vídeo:</strong> um fluxo integrado</span></li>
+                <li><span data-lang="en"><strong>PM ⇄ All:</strong> scope freeze, RACI approvals, metrics loop</span><span data-lang="pt"><strong>PM ⇄ Todos:</strong> congelamento de escopo, aprovações RACI, ciclo de métricas</span></li>
+              </ul>
+            </div>
+            <div class="card"><span class="hud">RACI · <span data-lang="en">key deliverables</span><span data-lang="pt">entregas-chave</span></span>
+              <ul class="kpi-list">
+                <li><span><span data-lang="en">Personas, metrics &amp; strategy</span><span data-lang="pt">Personas, métricas e estratégia</span></span><span>PM: A/R</span></li>
+                <li><span><span data-lang="en">Wireframes &amp; flow maps</span><span data-lang="pt">Wireframes e fluxos</span></span><span>Design: R</span></li>
+                <li><span><span data-lang="en">Component &amp; design system</span><span data-lang="pt">Componentes e design system</span></span><span>FE: R · Design: A</span></li>
+                <li><span><span data-lang="en">Prototype trials &amp; validation</span><span data-lang="pt">Testes e validação do protótipo</span></span><span>PM: A</span></li>
+              </ul>
+              <p class="footnote" style="margin-top:8px">R = Responsible · A = Accountable</p>
+            </div>
+          </div>
+          <div class="callout"><p><span data-lang="en"><strong>Aviation parallel:</strong> a pre-flight briefing sets objectives, risks and who does what before anything moves. Scope freeze plus RACI did the same job for a 15-person team on a short cadence.</span><span data-lang="pt"><strong>Paralelo com a aviação:</strong> o briefing antes do voo define objetivos, riscos e quem faz o quê antes de qualquer movimento. Congelamento de escopo e RACI cumpriram esse papel para um time de 15 pessoas em ciclos curtos.</span></p></div>
+        </section>
+
+        <!-- 14 OUTCOMES -->
+        <section class="chapter" id="outcomes" aria-labelledby="h-outcomes">
+          <span class="chapter__num hud">14</span>
+          <h2 id="h-outcomes"><span data-lang="en">Outcomes &amp; learnings</span><span data-lang="pt">Resultados e aprendizados</span></h2>
+          <div class="grid-3">
+            <div class="card card--hud"><span class="hud hud--amber"><span data-lang="en">Shipped</span><span data-lang="pt">Lançado</span></span><p style="margin:8px 0 0"><span data-lang="en">MVP live at Demo Day, August 2026, at <a href="https://eyefriend.io" target="_blank" rel="noopener">eyefriend.io</a>.</span><span data-lang="pt">MVP ao vivo no Demo Day, agosto de 2026, em <a href="https://eyefriend.io" target="_blank" rel="noopener">eyefriend.io</a>.</span></p></div>
+            <div class="card card--hud"><span class="hud hud--amber"><span data-lang="en">Recognized</span><span data-lang="pt">Reconhecido</span></span><p style="margin:8px 0 0"><span data-lang="en">#1 Best Project of Cohort 9, voted by fellow participants. <a href="https://lnkd.in/p/dZ3cCv6h" target="_blank" rel="noopener">See the announcement</a>.</span><span data-lang="pt">1º Melhor Projeto da Cohort 9, por voto dos participantes. <a href="https://lnkd.in/p/dZ3cCv6h" target="_blank" rel="noopener">Ver o anúncio</a>.</span></p></div>
+            <div class="card card--hud"><span class="hud hud--amber"><span data-lang="en">Grounded in users</span><span data-lang="pt">Baseado em usuários</span></span><p style="margin:8px 0 0"><span data-lang="en">Scope, guardrails and metrics traced back to 33 conversations with the people we built for.</span><span data-lang="pt">Escopo, guardrails e métricas ligados a 33 conversas com as pessoas para quem construímos.</span></p></div>
+          </div>
+
+          <h3><span data-lang="en">What I’m taking forward</span><span data-lang="pt">O que levo daqui</span></h3>
+          <ul>
+            <li><span data-lang="en"><strong>In AI products, trust is the feature.</strong> Users told us reliability mattered more than breadth, and the research on human-AI trust says the same.</span><span data-lang="pt"><strong>Em produtos de IA, confiança é a funcionalidade.</strong> Os usuários disseram que confiabilidade importava mais que quantidade, e a pesquisa sobre confiança humano-IA diz o mesmo.</span></li>
+            <li><span data-lang="en"><strong>Decide what the model should not do.</strong> Keeping money math deterministic and letting the model abstain removed the highest-cost errors by design.</span><span data-lang="pt"><strong>Decida o que o modelo não deve fazer.</strong> Manter a conta de dinheiro determinística e deixar o modelo se abster eliminou por design os erros de maior custo.</span></li>
+            <li><span data-lang="en"><strong>Baseline before targets.</strong> Committing to numbers before measuring creates fake precision.</span><span data-lang="pt"><strong>Linha de base antes das metas.</strong> Fixar números antes de medir cria precisão falsa.</span></li>
+            <li><span data-lang="en"><strong>Contracts beat meetings.</strong> One shared JSON schema let three engineering pods move in parallel without breaking each other.</span><span data-lang="pt"><strong>Contratos valem mais que reuniões.</strong> Um esquema JSON compartilhado permitiu que três pods de engenharia avançassem em paralelo sem quebrar o trabalho uns dos outros.</span></li>
+          </ul>
+          <!-- TODO (Lucas): add 1–2 personal lines on what you would do differently next time. -->
+
+          <div class="card next-link" style="margin-top:28px">
+            <div><span class="hud"><span data-lang="en">Next</span><span data-lang="pt">Próximo</span></span><p style="margin:4px 0 0;color:var(--text)"><span data-lang="en">Want to talk about this project?</span><span data-lang="pt">Quer conversar sobre este projeto?</span></p></div>
+            <div class="hero__ctas" style="margin:0">
+              <a class="btn btn--primary" href="index.html#contact"><span data-lang="en">Get in touch</span><span data-lang="pt">Entrar em contato</span></a>
+              <a class="btn btn--ghost" href="index.html"><span data-lang="en">Back to home</span><span data-lang="pt">Voltar ao início</span></a>
+            </div>
+          </div>
+        </section>
+
+        <!-- 15 SOURCES -->
+        <section class="chapter" id="sources" aria-labelledby="h-sources">
+          <span class="chapter__num hud">15</span>
+          <h2 id="h-sources"><span data-lang="en">Sources</span><span data-lang="pt">Fontes</span></h2>
+          <p class="footnote"><span data-lang="en">Project facts come from the EyeFriend Demo Day deck (Aug 2026). Concepts and research are cited below.</span><span data-lang="pt">Os fatos do projeto vêm do deck do Demo Day do EyeFriend (ago/2026). Conceitos e pesquisas estão citados abaixo.</span></p>
+
+          <h3 class="hud hud--muted" style="font-size:.78rem"><span data-lang="en">Accessibility &amp; context</span><span data-lang="pt">Acessibilidade e contexto</span></h3>
+          <ol class="sources">
+            <li id="src-1"><span class="n">[1]</span><span>World Health Organization (2019). <em>World report on vision</em>. <a href="https://www.who.int/publications/i/item/9789241516570" target="_blank" rel="noopener">who.int</a></span></li>
+            <li id="src-21"><span class="n">[21]</span><span>W3C (2023). <em>Web Content Accessibility Guidelines (WCAG) 2.2</em>. <a href="https://www.w3.org/TR/WCAG22/" target="_blank" rel="noopener">w3.org/TR/WCAG22</a></span></li>
+          </ol>
+
+          <h3 class="hud hud--muted" style="font-size:.78rem;margin-top:24px"><span data-lang="en">Product management</span><span data-lang="pt">Product management</span></h3>
+          <ol class="sources">
+            <li id="src-2"><span class="n">[2]</span><span>Christensen, C. M., Hall, T., Dillon, K., &amp; Duncan, D. S. (2016). Know your customers’ “jobs to be done”. <em>Harvard Business Review</em>. <a href="https://hbr.org/2016/09/know-your-customers-jobs-to-be-done" target="_blank" rel="noopener">hbr.org</a></span></li>
+            <li id="src-3"><span class="n">[3]</span><span>Torres, T. <em>Opportunity Solution Tree</em>. Product Talk. <a href="https://www.producttalk.org/glossary-discovery-opportunity-solution-tree/" target="_blank" rel="noopener">producttalk.org</a></span></li>
+            <li id="src-4"><span class="n">[4]</span><span>Guest, G., Bunce, A., &amp; Johnson, L. (2006). How many interviews are enough? An experiment with data saturation and variability. <em>Field Methods</em>, 18(1). <a href="https://doi.org/10.1177/1525822X05279903" target="_blank" rel="noopener">doi.org/10.1177/1525822X05279903</a></span></li>
+            <li id="src-5"><span class="n">[5]</span><span>Moore, G. A. <em>Crossing the Chasm</em>; interview on finding your beachhead, Lenny’s Podcast. <a href="https://www.lennysnewsletter.com/p/geoffrey-moore-on-finding-your-beachhead" target="_blank" rel="noopener">lennysnewsletter.com</a></span></li>
+            <li id="src-6"><span class="n">[6]</span><span>Ries, E. <em>The Lean Startup</em>: principles (MVP, build-measure-learn). <a href="https://theleanstartup.com/principles" target="_blank" rel="noopener">theleanstartup.com</a></span></li>
+            <li id="src-17"><span class="n">[17]</span><span>Amplitude. <em>The North Star Playbook</em>. <a href="https://amplitude.com/books/north-star" target="_blank" rel="noopener">amplitude.com/books/north-star</a></span></li>
+            <li id="src-18"><span class="n">[18]</span><span>Rodden, K., Hutchinson, H., &amp; Fu, X. (2010). Measuring the user experience on a large scale: User-centered metrics for web applications (HEART). <em>CHI 2010</em>, Google Research. <a href="https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/" target="_blank" rel="noopener">research.google</a></span></li>
+            <li id="src-19"><span class="n">[19]</span><span>ASQ. <em>The DMAIC process</em>. <a href="https://asq.org/quality-resources/dmaic" target="_blank" rel="noopener">asq.org</a></span></li>
+            <li id="src-20"><span class="n">[20]</span><span>Bastow, J. Building better roadmaps (Now / Next / Later). Lenny’s Newsletter. <a href="https://www.lennysnewsletter.com/p/building-better-roadmaps-janna-bastow" target="_blank" rel="noopener">lennysnewsletter.com</a></span></li>
+            <li id="src-16"><span class="n">[16]</span><span>Nielsen, J. (1993). Response times: The 3 important limits. Nielsen Norman Group. <a href="https://www.nngroup.com/articles/response-times-3-important-limits/" target="_blank" rel="noopener">nngroup.com</a></span></li>
+          </ol>
+
+          <h3 class="hud hud--muted" style="font-size:.78rem;margin-top:24px"><span data-lang="en">AI research &amp; human-AI interaction</span><span data-lang="pt">Pesquisa em IA e interação humano-IA</span></h3>
+          <ol class="sources">
+            <li id="src-7"><span class="n">[7]</span><span>Gurari, D., et al. (2018). VizWiz Grand Challenge: Answering visual questions from blind people. <em>CVPR 2018</em>. <a href="https://arxiv.org/abs/1802.08218" target="_blank" rel="noopener">arxiv.org/abs/1802.08218</a></span></li>
+            <li id="src-8"><span class="n">[8]</span><span>Gonzalez Penuela, R. E., et al. (2024). Investigating use cases of AI-powered scene description applications for blind and low vision people. <em>CHI 2024</em>. <a href="https://arxiv.org/abs/2403.15604" target="_blank" rel="noopener">arxiv.org/abs/2403.15604</a></span></li>
+            <li id="src-9"><span class="n">[9]</span><span>Kalai, A. T., Nachum, O., Vempala, S. S., &amp; Zhang, E. (2025). Why language models hallucinate. OpenAI. <a href="https://arxiv.org/abs/2509.04664" target="_blank" rel="noopener">arxiv.org/abs/2509.04664</a></span></li>
+            <li id="src-10"><span class="n">[10]</span><span>Geifman, Y., &amp; El-Yaniv, R. (2017). Selective classification for deep neural networks. <em>NeurIPS 2017</em>. <a href="https://arxiv.org/abs/1705.08500" target="_blank" rel="noopener">arxiv.org/abs/1705.08500</a></span></li>
+            <li id="src-11"><span class="n">[11]</span><span>Amershi, S., et al. (2019). Guidelines for Human-AI Interaction. <em>CHI 2019</em>, Microsoft Research. <a href="https://www.microsoft.com/en-us/research/project/guidelines-for-human-ai-interaction/" target="_blank" rel="noopener">microsoft.com/research</a></span></li>
+            <li id="src-12"><span class="n">[12]</span><span>Google PAIR. <em>People + AI Guidebook</em>: Errors + Graceful Failure. <a href="https://pair.withgoogle.com/guidebook/chapters" target="_blank" rel="noopener">pair.withgoogle.com</a></span></li>
+            <li id="src-13"><span class="n">[13]</span><span>Lee, J. D., &amp; See, K. A. (2004). Trust in automation: Designing for appropriate reliance. <em>Human Factors</em>, 46(1). <a href="https://journals.sagepub.com/doi/10.1518/hfes.46.1.50_30392" target="_blank" rel="noopener">doi.org/10.1518/hfes.46.1.50_30392</a></span></li>
+            <li id="src-14"><span class="n">[14]</span><span>Schick, T., et al. (2023). Toolformer: Language models can teach themselves to use tools. <em>NeurIPS 2023</em>. <a href="https://arxiv.org/abs/2302.04761" target="_blank" rel="noopener">arxiv.org/abs/2302.04761</a></span></li>
+            <li id="src-15"><span class="n">[15]</span><span>Liu, Y., et al. OCRBench: On the hidden mystery of OCR in large multimodal models. <a href="https://arxiv.org/abs/2305.07895" target="_blank" rel="noopener">arxiv.org/abs/2305.07895</a></span></li>
+          </ol>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <span>© <span data-year>2026</span> Lucas Lorga</span>
+      <span><a href="index.html"><span data-lang="en">Home</span><span data-lang="pt">Início</span></a></span>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
